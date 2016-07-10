@@ -1,0 +1,24 @@
+@media (min-width: 768px) {
+.main-container{
+    width:600px;
+}}
+
+@media (min-width: 992px) {
+.main-container{
+    width:720px;
+}}
+
+@media (min-width: 1200px) {
+.main-container{
+    width:900px;
+}}
+
+.info-box {
+    border: 1px solid #ddd;
+    background-image: url("../img/Strawberry.png");
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position: right;
+    padding: 1em;
+    font-size: small;
+}
