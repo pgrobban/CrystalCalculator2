@@ -1,17 +1,24 @@
 @media (min-width: 768px) {
-.main-container{
-    width:600px;
-}}
+    .main-container {
+        width: 600px;
+    }
+}
 
 @media (min-width: 992px) {
-.main-container{
-    width:720px;
-}}
+    .main-container {
+        width: 720px;
+    }
+}
 
 @media (min-width: 1200px) {
-.main-container{
-    width:900px;
-}}
+    .main-container {
+        width: 900px;
+    }
+}
+
+.info-row {
+  margin-bottom: 25px;
+}
 
 .info-box {
     border: 1px solid #ddd;
@@ -21,4 +28,12 @@
     background-position: right;
     padding: 1em;
     font-size: small;
+}
+
+.treasures-table img {
+    max-width: 60pt;
+}
+
+.table tbody>tr>td {
+    vertical-align: middle;
 }
