@@ -1,21 +1,22 @@
 {
-    "name": "crystal-calculator",
-    "description": "A tool for calculating daily earnings of crystals in the game LINE Cookie Run.",
-    "license": "MIT",
-    "version": "0.1.0",
-    "scripts": {
-        "start": "npm run start-server & npm run gulp",
-        "start-server": "python -m SimpleHTTPServer 3000",
-        "gulp": "gulp"
-    },
-    "devDependencies": {
-        "babel-preset-es2015": "^6.9.0",
-        "babelify": "^7.3.0",
-        "browserify": "^13.0.1",
-        "eslint": "^3.0.1",
-        "gulp": "^3.9.1",
-        "gulp-util": "^3.0.7",
-        "lodash": "^4.13.1",
-        "vinyl-source-stream": "^1.1.0"
-    }
+  "name": "crystal-calculator",
+  "description": "A tool for calculating daily earnings of crystals in the game LINE Cookie Run.",
+  "license": "MIT",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "npm run start-server & npm run gulp",
+    "start-server": "python -m SimpleHTTPServer 3000",
+    "gulp": "gulp"
+  },
+  "devDependencies": {
+    "angular": "^1.5.7",
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "eslint": "^3.0.1",
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.7",
+    "lodash": "^4.13.1",
+    "vinyl-source-stream": "^1.1.0"
+  }
 }

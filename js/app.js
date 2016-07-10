@@ -1,6 +1,4 @@
-import dataJson from '../data/treasures.json';
-import _ from 'lodash';
+const app = angular.module('crystalCalculatorApp', []);
 
-_.forEach(dataJson, (jsonKey) => {
-    console.log(jsonKey);
-});
+require('./components');
+console.log("hello app");
