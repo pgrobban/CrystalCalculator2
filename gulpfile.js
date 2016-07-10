@@ -16,7 +16,7 @@ gulp.task('es6', function() {
             debug: true
         })
         .transform(babelify)
-        .require("./js/app.js", {
+        .require("./app/app.js", {
             entry: true
         })
         .bundle()
@@ -26,7 +26,7 @@ gulp.task('es6', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch(['./js/**/*.js'], ['es6']);
+    gulp.watch(['./app/**/*.js'], ['es6']);
 });
 
 gulp.task('default', ['es6', 'watch']);
