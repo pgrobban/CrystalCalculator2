@@ -1,14 +1,15 @@
-import angular from 'angular';
-
 const app = angular.module('crystalCalculatorApp');
 
-function TreasureController() {
-  console.log("aaa")
+class TreasureController {
+  constructor() {
+    console.log("b");
+  }
 }
 
 app.directive('treasure', function() {
   return {
     restrict: 'A',
+    replace: true,
     templateUrl: '/app/components/treasure/views/treasure.html',
     controller: TreasureController
   };
