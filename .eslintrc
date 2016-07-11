@@ -1,13 +1,13 @@
 {
     "parserOptions": {
         "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
+        "sourceType": "module"
     },
     "rules": {
         "semi": 2,
-        "indent": ["error", 2]
+        "indent": [
+             "error",
+            2
+        ]
     }
 }
