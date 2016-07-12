@@ -2,6 +2,7 @@ const app = angular.module('crystalCalculatorApp');
 
 class TreasureController {
   constructor($scope, TreasureFactory) {
+    console.log("*** create", $scope.vm.name);
     this._treasureFactory = TreasureFactory.$get($scope.vm.name);
   }
 
@@ -14,8 +15,7 @@ app.controller('TreasureController', TreasureController);
 
 app.directive('treasure', function() {
   return {
-    restrict: 'E',
-    replace: true,
+    restrict: 'A',
     templateUrl: '/app/components/treasure/views/treasure.html',
     bindToController: true,
     controller: TreasureController,

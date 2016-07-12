@@ -17,8 +17,6 @@ export class TreasureFactory {
   }
 
   getImageUrl() {
-    const name = this.name;
-    console.log(this);
     return 'img/strawberry.png';
   }
 }
