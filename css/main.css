@@ -1,3 +1,9 @@
+@media (max-width: 768px) {
+    .h2 {
+        margin-left: 10px;
+    }
+}
+
 @media (min-width: 768px) {
     .main-container {
         width: 600px;
@@ -34,6 +40,22 @@
     max-width: 60pt;
 }
 
-.table tbody>tr>td {
+.table tbody>tr>td, .table thead>tr>th {
     vertical-align: middle;
+}
+
+footer {
+    position: fixed;    
+    z-index: 99;
+    left: 0;
+    bottom: 0;
+    height: 90px;
+    width: 100%;
+    background-color: #2d76c9;
+    color: white;
+}
+
+footer table {
+    margin-top: 8px;
+    border-collapse: collapse;
 }
