@@ -1,8 +1,12 @@
 const app = angular.module('crystalCalculatorApp');
 
 class TreasureController {
-  constructor() {
-    console.log("b");
+  constructor($scope, treasureService) {
+    this._treasureService = treasureService;
+  }
+
+  getImage() {
+    return 'hello';
   }
 }
 
@@ -11,6 +15,7 @@ app.directive('treasure', function() {
     restrict: 'A',
     replace: true,
     templateUrl: '/app/components/treasure/views/treasure.html',
-    controller: TreasureController
+    controller: TreasureController,
+    controllerAs: 'vm'
   };
 });
