@@ -1,2 +1,2 @@
 require('./directives');
-require('./services');
+require('./factories');

@@ -1,9 +1,11 @@
-import { TreasureService } from './components/treasure/services/treasure_service';
+import { TreasureFactory } from './components/treasure/factories/treasure_factory';
 import dataJson from '../data/treasures.json';
 
 const app = angular.module('crystalCalculatorApp', []);
-app.service('treasureService', () => {
-  return new TreasureService(dataJson);
+
+app.value('dataJson', dataJson);
+app.factory('TreasureFactory', (dataJson) => {
+  return new TreasureFactory(dataJson);
 });
 
 require('./components');
