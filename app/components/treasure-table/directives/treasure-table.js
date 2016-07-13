@@ -9,7 +9,6 @@ class TreasureTableController {
       { name: 'Prophet Cookie\'s Majestic Beard' },
       { name: 'Prophet Cookie\'s Majestic Beard' }
     ];
-    console.log($scope.vm);
   }
 
 }

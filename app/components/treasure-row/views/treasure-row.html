@@ -1,0 +1,8 @@
+<td><img src="{{ vm.getIconUrl(); }}" alt=""></td>
+<td>{{ vm.treasure.name }} {{ vm.treasure.level }} </td>
+<td> 
+  <select ng-model="vm.treasureInstance.level" class="form-control"  
+    ng-options="lvl.value as lvl.name for lvl in vm.levelOptions"
+    ng-change="vm.updateTreasureCrystalsValue()">
+  </select>
+</td>
