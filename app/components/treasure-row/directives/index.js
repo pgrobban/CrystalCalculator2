@@ -1,1 +1,1 @@
-require('./treasure-row');
+require('./treasure_row');
