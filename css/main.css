@@ -36,6 +36,10 @@
     font-size: small;
 }
 
+.treasures-table {
+    margin-bottom: 0px;
+}
+
 .treasures-table img {
     max-width: 60pt;
 }

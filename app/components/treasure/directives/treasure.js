@@ -1,13 +1,24 @@
 const app = angular.module('crystalCalculatorApp');
 
 class TreasureController {
+
   constructor($scope, TreasureFactory) {
-    console.log("*** create", $scope.vm.name);
     this._treasureFactory = TreasureFactory.$get($scope.vm.name);
+    const levelOptions = [{
+      value: -1,
+      name: "Don't have"
+    }, {
+      value: 0,
+      name: '+0 (Unupgraded)'
+    }, {
+      value: 1,
+      name: '+1'
+    }];
+    $scope.vm.levelOptions = levelOptions;
   }
 
-  getImage() {
-    return this._treasureFactory.getImageUrl();
+  getIconUrl() {
+    return this._treasureFactory.getIconUrl();
   }
 }
 
@@ -21,7 +32,8 @@ app.directive('treasure', function() {
     controller: TreasureController,
     controllerAs: 'vm',
     scope: {
-      name: '@'
+      name: '@',
+      level: '='
     }
   };
 });

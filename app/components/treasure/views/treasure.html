@@ -1,3 +1,6 @@
-<td><img src="{{ vm.getImage() }}" alt=""></td>
-<td>name {{ vm.name }}</td>
-<td>hi</td>
+<td><img src="{{ vm.getIconUrl() }}" alt=""></td>
+<td>{{ vm.name }} {{ vm.level }} </td>
+<td>
+  <select ng-model="vm.level" class="form-control"  ng-options="lvl.value as lvl.name for lvl in vm.levelOptions">>
+  </select>
+</td>

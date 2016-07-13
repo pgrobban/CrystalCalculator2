@@ -16,7 +16,9 @@ export class TreasureFactory {
     return this.name;
   }
 
-  getImageUrl() {
-    return 'img/strawberry.png';
+  getIconUrl() {
+    const iconBasePath = 'img';
+    const iconFile = this.dataJson.cookiesLevelUpTreasures[this.name].icon;
+    return `${iconBasePath}/${iconFile}`;
   }
 }
