@@ -1,13 +1,8 @@
 {
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module"
-    },
-    "rules": {
-        "semi": 2,
-        "indent": [
-             "error",
-            2
-        ]
-    }
+   "extends": "airbnb",
+   "rules": {
+       "comma-dangle": ["error", "never"],
+       "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+       "no-param-reassign": ["error", { "props": false }]
+   }
 }
