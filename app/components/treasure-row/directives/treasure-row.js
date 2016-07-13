@@ -1,5 +1,5 @@
 import angular from 'angular';
-import TreasureInstance from '../controllers/treasure-controller';
+import TreasureInstance from '../models/treasure-instance';
 const app = angular.module('crystalCalculatorApp');
 
 const levelOptions = [{
@@ -42,13 +42,12 @@ class TreasureRowController {
 
   constructor($scope, TreasureFactory) {
     // this = $scope.vm
-    this.treasureModel = TreasureFactory.$get(this.treasure);
-    this.treasureInstance = new TreasureInstance(this.treasureModel);
+    // the treasure model is the static data that holds for all treasures of one kind.
+    this.treasureModel = TreasureFactory.$get(this.treasure.name);
+    // the treasure instance holds all static data plus unique data for this instance
+    // of the treasure, such as level.
+    this.treasure = new TreasureInstance(this.treasureModel, this.treasure.level);
     this.levelOptions = levelOptions;
-  }
-
-  getIconUrl() {
-    return this.treasureModel.getIconUrl();
   }
 
   updateTreasureCrystalsValue() {

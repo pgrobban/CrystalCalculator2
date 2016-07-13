@@ -5,7 +5,13 @@ const app = angular.module('crystalCalculatorApp');
 class TreasureTableController {
 
   constructor(dataJson) {
-    this.treasures = Object.keys(dataJson[this.collectionName]);
+    this.description = dataJson[this.collectionName].description;
+    this.treasures = [];
+    forEach(Object.keys(dataJson[this.collectionName].treasures), (treasureName) => {
+      this.treasures.push({
+        name: treasureName
+      });
+    });
   }
 
   recalculateTotalValues() {

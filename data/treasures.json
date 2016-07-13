@@ -1,21 +1,24 @@
 {
     "cookiesLevelUpTreasures": {
-        "Prophet Cookie's Majestic Beard": {
-            "icon": "Prophet Cookie's Majestic Beard.png",
-            "crystals": 2,
-            "probabilityPercent": [
-                7,
-                10,
-                12,
-                15,
-                17,
-                20,
-                22,
-                25,
-                28,
-                30
-            ]
-        }
+        "description": "Treasures obtained by upgrading Cookies to +8",
+        "treasures": {
+            "Prophet Cookie's Majestic Beard": {
+                "icon": "Prophet Cookie's Majestic Beard.png",
+                "crystals": 2,
+                "probabilityPercent": [
+                    7,
+                    10,
+                    12,
+                    15,
+                    17,
+                    20,
+                    22,
+                    25,
+                    28,
+                    30
+                ]
+            }
+        },
     },
     "petsLevelUpTreasures": {},
     "playerLevelUpTreasures": {},

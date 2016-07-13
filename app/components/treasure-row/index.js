@@ -1,3 +1,3 @@
 require('./directives');
 require('./factories');
-require('./controllers');
+require('./models');

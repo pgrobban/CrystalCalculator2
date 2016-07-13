@@ -17,16 +17,16 @@ export class TreasureFactory {
   }
 
   getIconUrl() {
-    const iconBasePath = 'img';
-    const iconFile = this.dataJson.cookiesLevelUpTreasures[this.name].icon;
-    return `${iconBasePath}/${iconFile}`;
+    const iconBasePath = 'img/';
+    const iconFile = this.dataJson.cookiesLevelUpTreasures.treasures[this.name].icon;
+    return `${iconBasePath}${iconFile}`;
   }
 
   getCrystals() {
-    return this.dataJson.cookiesLevelUpTreasures[this.name].crystals;
+    return this.dataJson.cookiesLevelUpTreasures.treasures[this.name].crystals;
   }
 
   getProbabilityForLevel(level) {
-    return this.dataJson.cookiesLevelUpTreasures[this.name].probabilityPercent[level];
+    return this.dataJson.cookiesLevelUpTreasures.treasures[this.name].probabilityPercent[level];
   }
 }
