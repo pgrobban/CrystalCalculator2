@@ -37,7 +37,6 @@ export class TreasureFactory {
   }
 
   getCrystals() {
-    console.log(this.treasureData);
     return this.treasureData.crystals;
   }
 

@@ -3,8 +3,10 @@ import { forEach, round } from 'lodash';
 export class MainController {
 
   constructor($scope, dataJson) {
-    $scope.totalCrystals = 0;
-    $scope.averageCrystals = 0;
+    $scope.result = {
+      totalCrystals: 0,
+      averageCrystals: 0
+    };
 
     $scope.treasureTables = [{
       collectionName: 'cookiesLevelUpTreasures',
@@ -17,15 +19,19 @@ export class MainController {
     }];
 
     $scope.recalculateTotalAndAverage = () => {
-      console.log("***aa", $scope.treasureTables);
-      $scope.totalCrystals = 0;
-      $scope.averageCrystals = 0;
+      let totalCrystals = 0;
+      let averageCrystals = 0;
 
       forEach($scope.treasureTables, (treasureTable) => {
-        $scope.totalCrystals += treasureTable.totalCrystals;
-        $scope.averageCrystals += treasureTable.averageCrystals;
+        totalCrystals += treasureTable.totalCrystals;
+        averageCrystals += treasureTable.averageCrystals;
       });
-      $scope.averageCrystals = round($scope.averageCrystals, 2);
+
+      $scope.result = {
+        totalCrystals,
+        averageCrystals: round(averageCrystals, 2)
+      };
+      $scope.$apply();
     };
   }
 

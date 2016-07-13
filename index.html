@@ -53,11 +53,11 @@
                 <table class="table table-responsive">
                     <tr>
                         <td>Expected average <img src="img/crystal.png"/>/day:</td>
-                        <td>{{ averageCrystals }}</td>
+                        <td class="text-right" ng-bind=result.averageCrystals</td>
                     </tr>
                     <tr>
                         <td>Maximum <img src="img/crystal.png"/>/day:</td>
-                        <td>{{ totalCrystals }}</td>
+                        <td class="text-right" ng-bind="result.totalCrystals"</td>
                     </tr>
                 </table>
             </div>
