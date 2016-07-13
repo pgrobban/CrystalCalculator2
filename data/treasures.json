@@ -5,7 +5,7 @@
             "Prophet Cookie's Majestic Beard": {
                 "icon": "Prophet Cookie's Majestic Beard.png",
                 "crystals": 2,
-                "probabilityPercent": [
+                "probabilityPercents": [
                     7,
                     10,
                     12,

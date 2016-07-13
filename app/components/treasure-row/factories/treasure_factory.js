@@ -26,7 +26,7 @@ export class TreasureFactory {
     return this.dataJson.cookiesLevelUpTreasures.treasures[this.name].crystals;
   }
 
-  getProbabilityForLevel(level) {
-    return this.dataJson.cookiesLevelUpTreasures.treasures[this.name].probabilityPercent[level];
+  getCrystalProbabilityPercents() {
+    return this.dataJson.cookiesLevelUpTreasures.treasures[this.name].probabilityPercents;
   }
 }

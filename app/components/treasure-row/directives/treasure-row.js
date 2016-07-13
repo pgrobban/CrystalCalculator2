@@ -51,15 +51,10 @@ class TreasureRowController {
   }
 
   updateTreasureCrystalsValue() {
-    const level = this.treasureInstance.level;
-    if (level === -1) {
-      this.treasure.treasureInstance.value = 0;
-    } else {
-      const probability = this.treasureModel.getProbabilityForLevel(level);
-      const crystals = this.treasureModel.getCrystals();
-      this.treasureInstance.average = (probability / 100) * crystals;
-      this.recalculateTotalValues();
-    }
+    this.treasure.updateCrystalProbability();
+    const crystals = this.treasure.crystals;
+    const average = this.treasure.average;
+    console.log(crystals, average);
   }
 }
 
