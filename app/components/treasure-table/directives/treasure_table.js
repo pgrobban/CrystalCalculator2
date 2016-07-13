@@ -27,6 +27,7 @@ class TreasureTableController {
     });
     this.totalCrystals = totalCrystals;
     this.averageCrystals = averageCrystals;
+    this.triggerRecalculate();
   }
 
 }
@@ -40,6 +41,8 @@ app.directive('treasureTable', () => ({
   scope: {
     collectionName: '@',
     treasures: '=?',
+    totalCrystals: '=',
+    averageCrystals: '=',
     triggerRecalculate: '&'
   }
 }));

@@ -1,7 +1,9 @@
+import { cloneDeep } from 'lodash';
+
 export default class TreasureInstance {
 
   constructor(treasureModel, level) {
-    this.treasureModel = treasureModel;
+    this.treasureModel = cloneDeep(treasureModel);
     if (!level) {
       this.level = -1;
       this.crystals = 0;

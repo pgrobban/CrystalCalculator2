@@ -1,4 +1,4 @@
-import { forEach } from 'lodash';
+import { forEach, round } from 'lodash';
 
 export class MainController {
 
@@ -25,6 +25,7 @@ export class MainController {
         $scope.totalCrystals += treasureTable.totalCrystals;
         $scope.averageCrystals += treasureTable.averageCrystals;
       });
+      $scope.averageCrystals = round($scope.averageCrystals, 2);
     };
   }
 
