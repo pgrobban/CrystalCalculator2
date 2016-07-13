@@ -1,5 +1,6 @@
 {
   "name": "crystal-calculator",
+  "author": "pgrobban",
   "description": "A tool for calculating daily earnings of crystals in the game LINE Cookie Run.",
   "license": "MIT",
   "version": "0.1.0",
