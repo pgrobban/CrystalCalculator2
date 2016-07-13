@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="crystalCalculatorApp">
+<html ng-app="crystalCalculatorApp" ng-controller="MainController">
 
 <head>
     <title>pgrobban's Crystal Calculator</title>
@@ -42,8 +42,10 @@
             </div>
         </div>
 
-        <treasure-table collection-name="cookiesLevelUpTreasures"></treasure-table>
-        <treasure-table collection-name="petsLevelUpTreasures"></treasure-table>
+        <treasure-table ng-repeat="table in treasureTables" collection-name="{{ table.collectionName }}" 
+        total-crystals="{{ table.totalCrystals }}" average-crystals="{{ table.averageCrystals }}"
+        trigger-recalculate="recalculateTotalAndAverage()">
+        </treasure-table>
 
         <footer>
             <div class="container main-container">
@@ -51,11 +53,11 @@
                 <table class="table table-responsive">
                     <tr>
                         <td>Expected average <img src="img/crystal.png"/>/day:</td>
-                        <td>aaa</td>
+                        <td>{{ averageCrystals }}</td>
                     </tr>
                     <tr>
                         <td>Maximum <img src="img/crystal.png"/>/day:</td>
-                        <td>bbb</td>
+                        <td>{{ totalCrystals }}</td>
                     </tr>
                 </table>
             </div>

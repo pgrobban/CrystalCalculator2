@@ -7,11 +7,14 @@ class TreasureTableController {
   constructor(dataJson) {
     this.description = dataJson[this.collectionName].description;
     this.treasures = [];
-    forEach(Object.keys(dataJson[this.collectionName].treasures), (treasureName) => {
+    const treasureNamesInThisCollection = Object.keys(dataJson[this.collectionName].treasures);
+    forEach(treasureNamesInThisCollection, (treasureName) => {
       this.treasures.push({
         name: treasureName
       });
     });
+    this.totalCrystals = 0;
+    this.averageCrystals = 0;
   }
 
   recalculateTotalValues() {
@@ -22,10 +25,8 @@ class TreasureTableController {
       totalCrystals += treasure.treasureInstance.crystals;
       averageCrystals += treasure.treasureInstance.average;
     });
-    return {
-      totalCrystals,
-      averageCrystals
-    };
+    this.totalCrystals = totalCrystals;
+    this.averageCrystals = averageCrystals;
   }
 
 }
@@ -38,6 +39,7 @@ app.directive('treasureTable', () => ({
   controllerAs: 'vm',
   scope: {
     collectionName: '@',
-    treasures: '=?'
+    treasures: '=?',
+    triggerRecalculate: '&'
   }
 }));
