@@ -1,3 +1,5 @@
+import { forEach } from 'lodash';
+
 export class TreasureFactory {
 
   /* What I want to do is somehow dependency inject dataJson and maybe other dependencies
@@ -9,6 +11,17 @@ export class TreasureFactory {
 
   $get(name) {
     this.name = name;
+    forEach(this.dataJson, (collection) => {
+      forEach(collection.treasures, (treasure, treasureName) => {
+        if (name === treasureName) {
+          this.treasureData = treasure;
+          return false;
+        }
+      });
+    });
+    if (!this.treasureData) {
+      throw new Error(`Treasure with name ${name} not in json`);
+    }    
     return this;
   }
 
@@ -18,15 +31,15 @@ export class TreasureFactory {
 
   getIconUrl() {
     const iconBasePath = 'img/';
-    const iconFile = this.dataJson.cookiesLevelUpTreasures.treasures[this.name].icon;
+    const iconFile = this.treasureData.icon;
     return `${iconBasePath}${iconFile}`;
   }
 
   getCrystals() {
-    return this.dataJson.cookiesLevelUpTreasures.treasures[this.name].crystals;
+    return this.treasureData.crystals;
   }
 
   getCrystalProbabilityPercents() {
-    return this.dataJson.cookiesLevelUpTreasures.treasures[this.name].probabilityPercents;
+    return this.treasureData.probabilityPercents;
   }
 }

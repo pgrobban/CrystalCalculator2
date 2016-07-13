@@ -18,9 +18,45 @@
                     30
                 ]
             }
-        },
+        }
     },
-    "petsLevelUpTreasures": {},
+    "petsLevelUpTreasures": {
+        "description": "Treasures obtained by upgrading Pets to +8",
+        "treasures": {
+            "Snow Globe's Crystal Crown": {
+                "icon": "Snow Globe's Crystal Crown.png",
+                "crystals": 1,
+                "probabilityPercents": [
+                    15,
+                    20,
+                    25,
+                    30,
+                    35,
+                    40,
+                    45,
+                    50,
+                    55,
+                    60
+                ]
+            },
+            "King Choco Drop's Jelly Crown": {
+                "icon": "King Choco Drop's Jelly Crown.png",
+                "crystals": 1,
+                "probabilityPercents": [
+                    15,
+                    20,
+                    25,
+                    30,
+                    35,
+                    40,
+                    45,
+                    50,
+                    55,
+                    60
+                ]
+            }
+        }
+    },
     "playerLevelUpTreasures": {},
     "certificateTreasures": {},
     "trophyTreasures": {},
