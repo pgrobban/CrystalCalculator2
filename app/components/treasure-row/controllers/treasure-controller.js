@@ -1,16 +1,16 @@
 export default class TreasureInstance {
 
-  constructor(treasure) {
-    this.treasure = treasure;
+  constructor(treasureModel, level) {
+    this.crystals = treasureModel.getCrystals();
 
-    if (!treasure.level) {
+    if (!level) {
       this.level = -1;
-      this.value = 0;
+      this.average = 0;
     }
   }
 
-  setCrystalsValue(value) {
-    this.value = value;
+  setAverageCrystalsValue(average) {
+    this.average = average;
   }
 
 }

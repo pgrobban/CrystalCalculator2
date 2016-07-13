@@ -4,11 +4,22 @@ const app = angular.module('crystalCalculatorApp');
 
 class TreasureTableController {
 
-  constructor($scope) {
-    $scope.vm.treasures = [
+  constructor() {
+    this.treasures = [
       { name: 'Prophet Cookie\'s Majestic Beard' },
       { name: 'Prophet Cookie\'s Majestic Beard' }
     ];
+  }
+
+  recalculateTotalValues() {
+    let totalCrystals = 0;
+    let averageCrystals = 0;
+
+    this.treasures.forEach((treasure) => {
+      totalCrystals += treasure.treasureInstance.crystals;
+      averageCrystals += treasure.treasureInstance.average;
+    });
+    console.log(totalCrystals, averageCrystals)
   }
 
 }

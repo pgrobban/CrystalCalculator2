@@ -41,26 +41,27 @@ const levelOptions = [{
 class TreasureRowController {
 
   constructor($scope, TreasureFactory) {
-    const treasure = $scope.vm.treasure;
+    // this = $scope.vm
+    this.treasureModel = TreasureFactory.$get(this.treasure.name);
+    this.treasureInstance = new TreasureInstance(this.treasureModel);
+    this.treasure.treasureInstance = this.treasureInstance;
 
-    this._treasureFactory = TreasureFactory.$get(treasure.name);
-    this.treasureInstance = new TreasureInstance(treasure);
-
-    $scope.vm.levelOptions = levelOptions;
+    this.levelOptions = levelOptions;
   }
 
   getIconUrl() {
-    return this._treasureFactory.getIconUrl();
+    return this.treasureModel.getIconUrl();
   }
 
   updateTreasureCrystalsValue() {
     const level = this.treasureInstance.level;
     if (level === -1) {
-      this.treasureInstance.value = 0;
+      this.treasure.treasureInstance.value = 0;
     } else {
-      const probability = this._treasureFactory.getProbabilityForLevel(level);
-      const crystals = this._treasureFactory.getCrystals();
-      this.treasureInstance.value = (probability / 100) * crystals;
+      const probability = this.treasureModel.getProbabilityForLevel(level);
+      const crystals = this.treasureModel.getCrystals();
+      this.treasureInstance.average = (probability / 100) * crystals;
+      this.recalculateTotalValues();
     }
   }
 }
@@ -74,6 +75,7 @@ app.directive('treasure', () => ({
   controller: TreasureRowController,
   controllerAs: 'vm',
   scope: {
-    treasure: '=?'
+    treasure: '=?',
+    recalculateTotalValues: '&'
   }
 }));

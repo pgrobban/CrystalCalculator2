@@ -9,6 +9,6 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="treasure in vm.treasures" treasure-row treasure="treasure"></tr>
+    <tr ng-repeat="treasure in vm.treasures" treasure-row treasure="treasure" recalculate-total-values="vm.recalculateTotalValues()"></tr>
   </tbody>
 </table>
