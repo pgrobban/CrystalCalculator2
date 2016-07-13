@@ -1,2 +1,0 @@
-require('./directives');
-require('./factories');

@@ -5,14 +5,10 @@
         <!--Icon-->
       </th>
       <th>Name</th>
-      <th>Select level/
-        <wbr>don't have</th>
+      <th>Select level/<wbr>don't have</th>
     </tr>
   </thead>
   <tbody>
-    <tr treasure name="Prophet Cookie's Majestic Beard" level="-1">
-      </treasure>
-      <tr treasure name="Prophet Cookie's Majestic Beard" level="-1">
-        </treasure>
+    <tr ng-repeat="treasure in vm.treasures" treasure-row treasure="treasure"></tr>
   </tbody>
 </table>

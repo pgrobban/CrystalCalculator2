@@ -1,2 +1,2 @@
 require('./treasure-table');
-require('./treasure');
+require('./treasure-row');
