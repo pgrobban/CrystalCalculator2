@@ -1,25 +1,21 @@
+import { forEach } from 'lodash';
 import angular from 'angular';
-
 const app = angular.module('crystalCalculatorApp');
 
 class TreasureTableController {
 
-  constructor() {
-    this.treasures = [
-      { name: 'Prophet Cookie\'s Majestic Beard' },
-      { name: 'Prophet Cookie\'s Majestic Beard' }
-    ];
+  constructor(dataJson) {
+    this.treasures = Object.keys(dataJson[this.collectionName]);
   }
 
   recalculateTotalValues() {
     let totalCrystals = 0;
     let averageCrystals = 0;
 
-    this.treasures.forEach((treasure) => {
+    forEach(this.treasures, (treasure) => {
       totalCrystals += treasure.treasureInstance.crystals;
       averageCrystals += treasure.treasureInstance.average;
     });
-    console.log(totalCrystals, averageCrystals)
   }
 
 }
@@ -31,6 +27,7 @@ app.directive('treasureTable', () => ({
   controller: TreasureTableController,
   controllerAs: 'vm',
   scope: {
+    collectionName: '@',
     treasures: '=?'
   }
 }));

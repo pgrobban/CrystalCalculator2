@@ -1,14 +1,21 @@
-<table class="table table-responsive treasures-table">
-  <thead>
-    <tr>
-      <th>
-        <!--Icon-->
-      </th>
-      <th>Name</th>
-      <th>Select level/<wbr>don't have</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="treasure in vm.treasures" treasure-row treasure="treasure" recalculate-total-values="vm.recalculateTotalValues()"></tr>
-  </tbody>
-</table>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Treasures obtained by upgrading Cookies to +8</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-responsive treasures-table">
+      <thead>
+        <tr>
+          <th>
+            <!--Icon-->
+          </th>
+          <th>Name</th>
+          <th>Select level/<wbr>don't have</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="treasure in vm.treasures" treasure-row treasure="treasure" recalculate-total-values="vm.recalculateTotalValues()"></tr>
+      </tbody>
+    </table>
+  </div>
+</div>

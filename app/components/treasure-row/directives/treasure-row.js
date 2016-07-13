@@ -42,10 +42,8 @@ class TreasureRowController {
 
   constructor($scope, TreasureFactory) {
     // this = $scope.vm
-    this.treasureModel = TreasureFactory.$get(this.treasure.name);
+    this.treasureModel = TreasureFactory.$get(this.treasure);
     this.treasureInstance = new TreasureInstance(this.treasureModel);
-    this.treasure.treasureInstance = this.treasureInstance;
-
     this.levelOptions = levelOptions;
   }
 
