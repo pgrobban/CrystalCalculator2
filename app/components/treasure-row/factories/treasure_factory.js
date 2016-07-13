@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import { forEach } from 'lodash';
 
 export class TreasureFactory {
@@ -21,7 +22,7 @@ export class TreasureFactory {
     });
     if (!this.treasureData) {
       throw new Error(`Treasure with name ${name} not in json`);
-    }    
+    }
     return this;
   }
 

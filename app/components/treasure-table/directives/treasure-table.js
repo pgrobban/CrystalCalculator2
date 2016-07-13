@@ -19,6 +19,7 @@ class TreasureTableController {
     let averageCrystals = 0;
 
     forEach(this.treasures, (treasure) => {
+      console.log("*** treasure", treasure);
       totalCrystals += treasure.crystals;
       averageCrystals += treasure.average;
     });
