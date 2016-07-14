@@ -22,6 +22,10 @@
     }
 }
 
+.main-container {
+    margin-bottom: 100px;
+}
+
 .info-row {
     margin-bottom: 25px;
 }
@@ -62,4 +66,8 @@ footer {
 footer table {
     margin-top: 8px;
     border-collapse: collapse;
+}
+
+footer table .result {
+    font-weight: bold;
 }

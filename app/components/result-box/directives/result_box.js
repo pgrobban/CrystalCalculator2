@@ -3,9 +3,6 @@ const app = angular.module('crystalCalculatorApp');
 
 class ResultBoxController {
 
-  constructor($scope) {
-  }
-
 }
 
 app.controller('ResultBoxController', ResultBoxController);
