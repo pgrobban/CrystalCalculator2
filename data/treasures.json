@@ -109,5 +109,24 @@
                 ]
             }
         }
+    },
+    "eventTreasures": {
+        "description": "Treasures obtained by finishing certain events",
+        "treasures": {
+            "Commemorative 4 Layer Cake": {
+                "icon": "Commemorative 4 Layer Cake.png",
+                "crystals": 4,
+                "probabilityPercents": [
+                    5, 7, 9, 11, 13, 16, 17, 18, 19, 20
+                ]
+            },
+            "Strangely Familiar Blue Necklace": {
+                "icon": "Strangely Familiar Blue Necklace.png",
+                "crystals": 1,
+                "probabilityPercents": [
+                    5, 10, 15, 20, 25, 30, 35, 40, 45, 50
+                ]
+            }
+        }
     }
 }
