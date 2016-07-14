@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="crystalCalculatorApp" ng-controller="MainController">
+<html ng-app="crystalCalculatorApp">
 
 <head>
     <title>pgrobban's Crystal Calculator</title>
@@ -15,7 +15,7 @@
     <script src="compiled-js/app.js"></script>
 </head>
 
-<body>
+<body  ng-controller="MainController">
 
     <div class="container main-container">
 
@@ -46,10 +46,11 @@
         total-crystals="table.totalCrystals" average-crystals="table.averageCrystals"
         trigger-recalculate="recalculateTotalAndAverage()">
         </treasure-table>
+    </div>
 
-        <footer>
-           <result-box result="result"></result-box>
-        </footer>
+    <footer>
+        <result-box result="result"></result-box>
+    </footer>
 </body>
 
 </html>
