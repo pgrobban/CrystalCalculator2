@@ -1,0 +1,26 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title" ng-bind="vm.description"></h3>
+  </div>
+  <div class="panel-body">
+    <select ng-model="vm.selectedTreasure" class="form-control"
+      ng-change="vm.updateSelectedTreasure()"> 
+      <option value="none" ng-disabled="true">Select a treasure...</option>
+      <option ng-repeat="treasureName in vm.selectableTreasureNames">{{ treasureName }}</option>
+    </select>
+    <table class="table table-responsive treasures-table">
+      <thead>
+        <tr>
+          <th>
+            <!--Icon-->
+          </th>
+          <th>Name</th>
+          <th>Select level/<wbr>don't have</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-if="vm.treasure" treasure-row treasure="vm.treasure" recalculateTotalValues="vm.recalculateTotalValues()"></tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,5 +1,5 @@
+/* eslint-disable */
 var gulp = require('gulp');
-var fs = require("fs");
 var browserify = require("browserify");
 var babelify = require("babelify");
 var source = require('vinyl-source-stream');

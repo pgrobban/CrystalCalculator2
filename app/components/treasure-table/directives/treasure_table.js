@@ -5,9 +5,10 @@ const app = angular.module('crystalCalculatorApp');
 class TreasureTableController {
 
   constructor(dataJson) {
-    this.description = dataJson[this.collectionName].description;
+    // this == $scope.vm
+    this.description = dataJson.uniqueTreasures[this.collectionName].description;
     this.treasures = [];
-    const treasureNamesInThisCollection = Object.keys(dataJson[this.collectionName].treasures);
+    const treasureNamesInThisCollection = Object.keys(dataJson.uniqueTreasures[this.collectionName].treasures);
     forEach(treasureNamesInThisCollection, (treasureName) => {
       this.treasures.push({
         name: treasureName

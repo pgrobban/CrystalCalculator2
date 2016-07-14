@@ -12,18 +12,24 @@ export class TreasureFactory {
 
   $get(name) {
     this.name = name;
-    forEach(this.dataJson, (collection) => {
-      forEach(collection.treasures, (treasure, treasureName) => {
-        if (name === treasureName) {
-          this.treasureData = treasure;
-          return false;
-        }
+    this.treasure = this._findTreasureDataInJson(name);
+    return this;
+  }
+
+  _findTreasureDataInJson(name) {
+    forEach(this.dataJson, (superCollection) => {
+      forEach(superCollection, (subCollection) => {
+        forEach(subCollection.treasures, (treasure, treasureName) => {
+          if (name === treasureName) {
+            this.treasureData = treasure;
+            return false;
+          }
+        });
       });
     });
     if (!this.treasureData) {
       throw new Error(`Treasure with name ${name} not in json`);
     }
-    return this;
   }
 
   getName() {

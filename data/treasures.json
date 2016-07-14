@@ -1,131 +1,190 @@
 {
-    "cookiesLevelUpTreasures": {
-        "description": "Treasures obtained by upgrading Cookies to +8",
-        "treasures": {
-            "Prophet Cookie's Majestic Beard": {
-                "icon": "Prophet Cookie's Majestic Beard.png",
-                "crystals": 2,
-                "probabilityPercents": [
-                    7,
-                    10,
-                    12,
-                    15,
-                    17,
-                    20,
-                    22,
-                    25,
-                    28,
-                    30
-                ]
+    "uniqueTreasures": {
+        "cookiesLevelUpTreasures": {
+            "description": "Treasures obtained by upgrading Cookies to +8",
+            "treasures": {
+                "Prophet Cookie's Majestic Beard": {
+                    "icon": "Prophet Cookie's Majestic Beard.png",
+                    "crystals": 2,
+                    "probabilityPercents": [
+                        7,
+                        10,
+                        12,
+                        15,
+                        17,
+                        20,
+                        22,
+                        25,
+                        28,
+                        30
+                    ]
+                }
+            }
+        },
+        "petsLevelUpTreasures": {
+            "description": "Treasures obtained by upgrading Pets to +8",
+            "treasures": {
+                "Snow Globe's Crystal Crown": {
+                    "icon": "Snow Globe's Crystal Crown.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        15,
+                        20,
+                        25,
+                        30,
+                        35,
+                        40,
+                        45,
+                        50,
+                        55,
+                        60
+                    ]
+                },
+                "King Choco Drop's Jelly Crown": {
+                    "icon": "King Choco Drop's Jelly Crown.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        15,
+                        20,
+                        25,
+                        30,
+                        35,
+                        40,
+                        45,
+                        50,
+                        55,
+                        60
+                    ]
+                }
+            }
+        },
+        "playerLevelUpTreasures": {
+            "description": "Treasures obtained by leveling up player",
+            "treasures": {
+                "Lv.50 Golden Club Trophy": {
+                    "icon": "Lv.50 Golden Club Trophy.png",
+                    "crystals": 2,
+                    "probabilityPercents": [
+                        20,
+                        23,
+                        26,
+                        29,
+                        32,
+                        35,
+                        38,
+                        41,
+                        44,
+                        50
+                    ]
+                },
+                "Lv.60 Legends Club Trophy": {
+                    "icon": "Lv.60 Legends Club Trophy.png",
+                    "crystals": 3,
+                    "probabilityPercents": [
+                        20,
+                        23,
+                        26,
+                        29,
+                        32,
+                        35,
+                        38,
+                        41,
+                        44,
+                        50
+                    ]
+                },
+                "Lv.70 Club Trophy": {
+                    "icon": "Lv.70 Club Trophy.png",
+                    "crystals": 5,
+                    "probabilityPercents": [
+                        10,
+                        12,
+                        14,
+                        16,
+                        18,
+                        20,
+                        22,
+                        24,
+                        26,
+                        30
+                    ]
+                }
+            }
+        },
+        "awardTreasures": {
+            "description": "Other awarded treasures",
+            "treasures": {
+                "Commemorative 4 Layer Cake": {
+                    "icon": "Commemorative 4 Layer Cake.png",
+                    "crystals": 4,
+                    "probabilityPercents": [
+                        5,
+                        7,
+                        9,
+                        11,
+                        13,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20
+                    ]
+                },
+                "Strangely Familiar Blue Necklace": {
+                    "icon": "Strangely Familiar Blue Necklace.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        5,
+                        10,
+                        15,
+                        20,
+                        25,
+                        30,
+                        35,
+                        40,
+                        45,
+                        50
+                    ]
+                }
             }
         }
     },
-    "petsLevelUpTreasures": {
-        "description": "Treasures obtained by upgrading Pets to +8",
-        "treasures": {
-            "Snow Globe's Crystal Crown": {
-                "icon": "Snow Globe's Crystal Crown.png",
-                "crystals": 1,
-                "probabilityPercents": [
-                    15,
-                    20,
-                    25,
-                    30,
-                    35,
-                    40,
-                    45,
-                    50,
-                    55,
-                    60
-                ]
-            },
-            "King Choco Drop's Jelly Crown": {
-                "icon": "King Choco Drop's Jelly Crown.png",
-                "crystals": 1,
-                "probabilityPercents": [
-                    15,
-                    20,
-                    25,
-                    30,
-                    35,
-                    40,
-                    45,
-                    50,
-                    55,
-                    60
-                ]
-            }
-        }
-    },
-    "playerLevelUpTreasures": {
-        "description": "Treasures obtained by leveling up player",
-        "treasures": {
-            "Lv.50 Golden Club Trophy": {
-                "icon": "Lv.50 Golden Club Trophy.png",
-                "crystals": 2,
-                "probabilityPercents": [
-                    20,
-                    23,
-                    26,
-                    29,
-                    32,
-                    35,
-                    38,
-                    41,
-                    44,
-                    50
-                ]
-            },
-            "Lv.60 Legends Club Trophy": {
-                "icon": "Lv.60 Legends Club Trophy.png",
-                "crystals": 3,
-                "probabilityPercents": [
-                    20,
-                    23,
-                    26,
-                    29,
-                    32,
-                    35,
-                    38,
-                    41,
-                    44,
-                    50
-                ]
-            },
-            "Lv.70 Club Trophy": {
-                "icon": "Lv.70 Club Trophy.png",
-                "crystals": 5,
-                "probabilityPercents": [
-                    10,
-                    12,
-                    14,
-                    16,
-                    18,
-                    20,
-                    22,
-                    24,
-                    26,
-                    30
-                ]
-            }
-        }
-    },
-    "eventTreasures": {
-        "description": "Treasures obtained by finishing certain events",
-        "treasures": {
-            "Commemorative 4 Layer Cake": {
-                "icon": "Commemorative 4 Layer Cake.png",
-                "crystals": 4,
-                "probabilityPercents": [
-                    5, 7, 9, 11, 13, 16, 17, 18, 19, 20
-                ]
-            },
-            "Strangely Familiar Blue Necklace": {
-                "icon": "Strangely Familiar Blue Necklace.png",
-                "crystals": 1,
-                "probabilityPercents": [
-                    5, 10, 15, 20, 25, 30, 35, 40, 45, 50
-                ]
+    "selectableTreasures": {
+        "certificateTreasures": {
+            "description": "Certificate treasures",
+            "treasures": {
+                "Cookie Run: 100M Points Certificate": {
+                    "icon": "Cookie Run- 100M Points Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        58,
+                        59,
+                        60,
+                        61,
+                        62,
+                        63,
+                        64,
+                        65,
+                        66,
+                        68
+                    ]
+                },
+                "Cookie Run: 90M Points Certificate": {
+                    "icon": "Cookie Run- 90M Points Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        60,
+                        61,
+                        62,
+                        63,
+                        64,
+                        65,
+                        66,
+                        67,
+                        68,
+                        70
+                    ]
+                }
             }
         }
     }

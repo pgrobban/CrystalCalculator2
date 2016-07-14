@@ -8,8 +8,16 @@ export class MainController {
       averageCrystals: 0
     };
 
-    const treasureCollectionNames = _.keys(dataJson);
+    // init main collections
+    const treasureCollectionNames = _.keys(dataJson.uniqueTreasures);
     $scope.treasureTables = _.map(treasureCollectionNames, (collectionName) => ({
+      collectionName,
+      totalCrystals: 0,
+      averageCrystals: 0
+    }));
+
+    const selectableTreasureCollectionNames = _.keys(dataJson.selectableTreasures);
+    $scope.selectableTreasureTables = _.map(selectableTreasureCollectionNames, (collectionName) => ({
       collectionName,
       totalCrystals: 0,
       averageCrystals: 0
