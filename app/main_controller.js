@@ -31,7 +31,6 @@ export class MainController {
         totalCrystals,
         averageCrystals: round(averageCrystals, 2)
       };
-      $scope.$apply();
     };
   }
 

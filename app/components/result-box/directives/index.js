@@ -1,0 +1,1 @@
+require('./result_box');
