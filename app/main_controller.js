@@ -1,4 +1,4 @@
-import { forEach, round } from 'lodash';
+import _ from 'lodash';
 
 export class MainController {
 
@@ -8,29 +8,26 @@ export class MainController {
       averageCrystals: 0
     };
 
-    $scope.treasureTables = [{
-      collectionName: 'cookiesLevelUpTreasures',
+    const treasureCollectionNames = _.keys(dataJson);
+    $scope.treasureTables = _.map(treasureCollectionNames, (collectionName) => ({
+      collectionName,
       totalCrystals: 0,
       averageCrystals: 0
-    }, {
-      collectionName: 'petsLevelUpTreasures',
-      totalCrystals: 0,
-      averageCrystals: 0
-    }];
+    }));
 
     $scope.recalculateTotalAndAverage = () => {
       $timeout(() => {
         let totalCrystals = 0;
         let averageCrystals = 0;
 
-        forEach($scope.treasureTables, (treasureTable) => {
+        _.forEach($scope.treasureTables, (treasureTable) => {
           totalCrystals += treasureTable.totalCrystals;
           averageCrystals += treasureTable.averageCrystals;
         });
 
         $scope.result = {
           totalCrystals,
-          averageCrystals: round(averageCrystals, 2)
+          averageCrystals: _.round(averageCrystals, 2)
         };
       });
     };

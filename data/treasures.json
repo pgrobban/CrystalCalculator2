@@ -57,8 +57,57 @@
             }
         }
     },
-    "playerLevelUpTreasures": {},
-    "certificateTreasures": {},
-    "trophyTreasures": {},
-    "chestTreasures": {}
+    "playerLevelUpTreasures": {
+        "description": "Treasures obtained by leveling up player",
+        "treasures": {
+            "Lv.50 Golden Club Trophy": {
+                "icon": "Lv.50 Golden Club Trophy.png",
+                "crystals": 2,
+                "probabilityPercents": [
+                    20,
+                    23,
+                    26,
+                    29,
+                    32,
+                    35,
+                    38,
+                    41,
+                    44,
+                    50
+                ]
+            },
+            "Lv.60 Legends Club Trophy": {
+                "icon": "Lv.60 Legends Club Trophy.png",
+                "crystals": 3,
+                "probabilityPercents": [
+                    20,
+                    23,
+                    26,
+                    29,
+                    32,
+                    35,
+                    38,
+                    41,
+                    44,
+                    50
+                ]
+            },
+            "Lv.70 Club Trophy": {
+                "icon": "Lv.70 Club Trophy.png",
+                "crystals": 5,
+                "probabilityPercents": [
+                    10,
+                    12,
+                    14,
+                    16,
+                    18,
+                    20,
+                    22,
+                    24,
+                    26,
+                    30
+                ]
+            }
+        }
+    }
 }
