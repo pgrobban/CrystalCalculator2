@@ -3,6 +3,7 @@
    "rules": {
        "comma-dangle": ["error", "never"],
        "no-underscore-dangle": ["error", { "allowAfterThis": true }],
-       "no-param-reassign": ["error", { "props": false }]
+       "no-param-reassign": ["error", { "props": false }],
+       "max-len": ["error", {"code": 160}]
    }
 }

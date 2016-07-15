@@ -52,7 +52,7 @@ class TreasureRowController {
 
   updateTreasureCrystalsValue() {
     this.treasure.treasureInstance.updateCrystalProbability();
-    this.recalculateTotalValues();
+    this.triggerTableRecalculateValues();
   }
 }
 
@@ -66,6 +66,6 @@ app.directive('treasure', () => ({
   controllerAs: 'vm',
   scope: {
     treasure: '=?',
-    recalculateTotalValues: '&'
+    triggerTableRecalculateValues: '&'
   }
 }));

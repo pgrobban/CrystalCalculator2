@@ -18,7 +18,7 @@ class TreasureTableController {
     this.averageCrystals = 0;
   }
 
-  recalculateTotalValues() {
+  triggerTableRecalculateValues() {
     let totalCrystals = 0;
     let averageCrystals = 0;
 

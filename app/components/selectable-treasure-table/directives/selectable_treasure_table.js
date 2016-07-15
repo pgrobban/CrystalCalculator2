@@ -1,13 +1,14 @@
-import { forEach } from 'lodash';
 import angular from 'angular';
 const app = angular.module('crystalCalculatorApp');
 
 class SelectableTreasureTableController {
 
-  constructor(dataJson) {
+  constructor(dataJson, $timeout) {
     // this == $scope.vm
+    this.$timeout = $timeout;
     this.description = dataJson.selectableTreasures[this.collectionName].description;
     this.treasure = null;
+
     const treasureNamesInThisCollection = Object.keys(dataJson.selectableTreasures[this.collectionName].treasures);
     this.selectableTreasureNames = treasureNamesInThisCollection;
     this.selectedTreasure = 'none';
@@ -16,7 +17,7 @@ class SelectableTreasureTableController {
     this.averageCrystals = 0;
   }
 
-  recalculateTotalValues() {
+  triggerTableRecalculateValues() {
     if (!this.treasure) {
       this.totalCrystals = 0;
       this.averageCrystals = 0;
@@ -31,8 +32,11 @@ class SelectableTreasureTableController {
     if (this.selectedTreasure === 'none') {
       this.treasure = null;
     } else {
-      this.treasure = ({
-        name: this.selectedTreasure
+      this.treasure = null;
+      this.$timeout(() => {
+        this.treasure = ({
+          name: this.selectedTreasure
+        });
       });
     }
   }
@@ -47,7 +51,6 @@ app.directive('selectableTreasureTable', () => ({
   controllerAs: 'vm',
   scope: {
     collectionName: '@',
-    treasures: '=?',
     totalCrystals: '=',
     averageCrystals: '=',
     triggerRecalculate: '&'
