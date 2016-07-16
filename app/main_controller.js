@@ -28,7 +28,7 @@ export class MainController {
         let totalCrystals = 0;
         let averageCrystals = 0;
 
-        _.forEach($scope.treasureTables, (treasureTable) => {
+        _.forEach(_.concat($scope.treasureTables, $scope.selectableTreasureTables), (treasureTable) => {
           totalCrystals += treasureTable.totalCrystals;
           averageCrystals += treasureTable.averageCrystals;
         });

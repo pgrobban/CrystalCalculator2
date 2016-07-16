@@ -44,12 +44,12 @@
 
         <treasure-table ng-repeat="table in treasureTables" collection-name="{{ table.collectionName }}" 
         total-crystals="table.totalCrystals" average-crystals="table.averageCrystals"
-        trigger-recalculate="recalculateTotalAndAverage()">
+        main-recalculate="recalculateTotalAndAverage">
         </treasure-table>
 
         <selectable-treasure-table ng-repeat="table in selectableTreasureTables" collection-name="{{ table.collectionName }}"
         total-crystals="table.totalCrystals" average-crystals="table.averageCrystals"
-        trigger-recalculate="recalculateTotalAndAverage()">
+        main-recalculate="recalculateTotalAndAverage">
         </selectable-treasure-table>
     </div>
 

@@ -18,25 +18,27 @@ class SelectableTreasureTableController {
   }
 
   triggerTableRecalculateValues() {
-    if (!this.treasure) {
+    if (!this.treasure || !this.treasure.treasureInstance) {
       this.totalCrystals = 0;
       this.averageCrystals = 0;
     } else {
-      this.totalCrystals = this.treasure.total;
-      this.averageCrystals = this.treasure.average;
+      this.totalCrystals = this.treasure.treasureInstance.crystals;
+      this.averageCrystals = this.treasure.treasureInstance.average;
     }
-    this.triggerRecalculate();
+    this.mainRecalculate();
   }
 
   updateSelectedTreasure() {
     if (this.selectedTreasure === 'none') {
       this.treasure = null;
+      this.triggerTableRecalculateValues();
     } else {
       this.treasure = null;
       this.$timeout(() => {
         this.treasure = ({
           name: this.selectedTreasure
         });
+        this.triggerTableRecalculateValues();
       });
     }
   }
@@ -53,6 +55,6 @@ app.directive('selectableTreasureTable', () => ({
     collectionName: '@',
     totalCrystals: '=',
     averageCrystals: '=',
-    triggerRecalculate: '&'
+    mainRecalculate: '='
   }
 }));
