@@ -23,6 +23,9 @@ export class MainController {
       averageCrystals: 0
     }));
 
+    $scope.chestTableTotalCrystals = 0;
+    $scope.chestTableAverageCrystals = 0;
+
     $scope.recalculateTotalAndAverage = () => {
       $timeout(() => {
         let totalCrystals = 0;
@@ -32,6 +35,8 @@ export class MainController {
           totalCrystals += treasureTable.totalCrystals;
           averageCrystals += treasureTable.averageCrystals;
         });
+        totalCrystals += $scope.chestTableTotalCrystals;
+        averageCrystals += $scope.chestTableAverageCrystals;
 
         $scope.result = {
           totalCrystals,
