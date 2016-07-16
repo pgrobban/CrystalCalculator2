@@ -17,6 +17,10 @@ export class TreasureFactory {
   }
 
   _findTreasureDataInJson(name) {
+    if (!name) {
+      throw new Error('_findTreasureDataInJson called without name');
+    }
+
     forEach(this.dataJson, (superCollection) => {
       forEach(superCollection, (subCollection) => {
         forEach(subCollection.treasures, (treasure, treasureName) => {
@@ -47,6 +51,9 @@ export class TreasureFactory {
   }
 
   getCrystalProbabilityPercents() {
+    if (!this.treasureData) {
+      throw new Error('getCrystalProbabilityPercents called without data');
+    }
     return this.treasureData.probabilityPercents;
   }
 }
