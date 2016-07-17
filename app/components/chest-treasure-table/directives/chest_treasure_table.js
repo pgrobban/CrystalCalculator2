@@ -8,7 +8,7 @@ class ChestTreasureTableController {
     // this == $scope.vm
     this.description = dataJson.chestTreasures.description;
     this.treasures = [];
-    this.selectableTreasureNames = Object.keys(dataJson.chestTreasures.treasures);
+    this.selectableTreasureNames = Object.keys(dataJson.chestTreasures.chestTreasures.treasures);
     this.selectedTreasure = 'none';
 
     this.totalCrystals = 0;
@@ -29,8 +29,15 @@ class ChestTreasureTableController {
     this.mainRecalculate();
   }
 
-  addTreasure(name) {
-    
+  chestTreasureSelectChanged() {
+    if (this.selectedTreasure === 'none') {
+      return;
+    } else {
+      this.treasures.push({
+        name: this.selectedTreasure
+      });
+      this.selectedTreasure = 'none';
+    }
   }
 
 }

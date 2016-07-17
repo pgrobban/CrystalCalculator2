@@ -242,39 +242,41 @@
         }
     },
     "chestTreasures": {
-        "description": "Chest treasures",
-        "treasures": {
-            "Big Crystal Ore": {
-                "icon": "Big Crystal Ore.png",
-                "crystals": 5,
-                "probabilityPercents": [
-                    2,
-                    4,
-                    6,
-                    8,
-                    10,
-                    12,
-                    14,
-                    16,
-                    18,
-                    21
-                ]
-            },
-            "Crystal Pearl Earring": {
-                "icon": "Crystal Pearl Earring.png",
-                "crystals": 1,
-                "probabilityPercents": [
-                    5,
-                    10,
-                    15,
-                    20,
-                    25,
-                    30,
-                    35,
-                    40,
-                    45,
-                    50
-                ]
+        "chestTreasures": {
+            "description": "Chest treasures",
+            "treasures": {
+                "Big Crystal Ore": {
+                    "icon": "Big Crystal Ore.png",
+                    "crystals": 5,
+                    "probabilityPercents": [
+                        2,
+                        4,
+                        6,
+                        8,
+                        10,
+                        12,
+                        14,
+                        16,
+                        18,
+                        21
+                    ]
+                },
+                "Crystal Pearl Earring": {
+                    "icon": "Crystal Pearl Earring.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        5,
+                        10,
+                        15,
+                        20,
+                        25,
+                        30,
+                        35,
+                        40,
+                        45,
+                        50
+                    ]
+                }
             }
         }
     }

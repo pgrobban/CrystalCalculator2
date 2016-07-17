@@ -5,9 +5,9 @@
   <div class="panel-body">
     <form class="form-inline">
       <div class="form-group">
-        <label>Select a treasure to add:</label>
-        <select ng-model="vm.selectedTreasure" class="form-control btn-success" ng-change="vm.updateSelectedTreasure()"> 
-          <option value="none" ng-disabled="true">Select a treasure...</option>
+        <label>Add a treasure:</label>
+        <select ng-model="vm.selectedTreasure" class="form-control btn-success" ng-change="vm.chestTreasureSelectChanged()"> 
+          <option value="none" ng-disabled="true">Select a treasure to add...</option>
           <option ng-repeat="treasureName in vm.selectableTreasureNames">{{ treasureName }}</option>
         </select>
       </div>

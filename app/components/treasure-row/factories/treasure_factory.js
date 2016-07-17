@@ -1,5 +1,5 @@
 /* eslint-disable consistent-return */
-import { forEach } from 'lodash';
+import { forEach, cloneDeep } from 'lodash';
 
 export class TreasureFactory {
 
@@ -11,8 +11,9 @@ export class TreasureFactory {
   }
 
   $get(name) {
+    console.log("**** in factory with name", name);
     this.name = name;
-    this.treasure = this._findTreasureDataInJson(name);
+    this.treasure = cloneDeep(this._findTreasureDataInJson(name));
     return this;
   }
 
