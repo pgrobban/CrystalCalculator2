@@ -70,7 +70,7 @@ app.controller('TreasureRowController', TreasureRowController);
 
 app.directive('treasure', () => ({
   restrict: 'A',
-  templateUrl: '/app/components/treasure-row/views/treasure-row.html',
+  templateUrl: 'app/components/treasure-row/views/treasure-row.html',
   bindToController: true,
   controller: TreasureRowController,
   controllerAs: 'vm',

@@ -36,7 +36,7 @@ class TreasureTableController {
 
 app.directive('treasureTable', () => ({
   restrict: 'E',
-  templateUrl: '/app/components/treasure-table/views/treasure-table.html',
+  templateUrl: 'app/components/treasure-table/views/treasure-table.html',
   bindToController: true,
   controller: TreasureTableController,
   controllerAs: 'vm',

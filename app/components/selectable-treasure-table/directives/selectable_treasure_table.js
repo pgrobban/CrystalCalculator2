@@ -47,7 +47,7 @@ class SelectableTreasureTableController {
 
 app.directive('selectableTreasureTable', () => ({
   restrict: 'E',
-  templateUrl: '/app/components/selectable-treasure-table/views/selectable-treasure-table.html',
+  templateUrl: 'app/components/selectable-treasure-table/views/selectable-treasure-table.html',
   bindToController: true,
   controller: SelectableTreasureTableController,
   controllerAs: 'vm',
