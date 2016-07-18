@@ -71,3 +71,7 @@ footer table {
 footer table .result {
     font-weight: bold;
 }
+
+.delete-treasure-column button {
+    padding: 0;
+}
