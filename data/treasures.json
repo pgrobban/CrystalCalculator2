@@ -184,6 +184,70 @@
                         66,
                         68
                     ]
+                },
+                "Cookie Run: 80M Points Certificate": {
+                    "icon": "Cookie Run- 80M Points Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        57,
+                        58,
+                        59,
+                        60,
+                        61,
+                        62,
+                        63,
+                        64,
+                        65,
+                        67
+                    ]
+                },
+                "Cookie Run: 70M Points Certificate": {
+                    "icon": "Cookie Run- 70M Points Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        56,
+                        57,
+                        58,
+                        59,
+                        60,
+                        61,
+                        62,
+                        63,
+                        64,
+                        66
+                    ]
+                },
+                "Cookie Run: 60M Points Certificate": {
+                    "icon": "Cookie Run- 60M Points Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        55,
+                        56,
+                        57,
+                        58,
+                        59,
+                        60,
+                        61,
+                        62,
+                        63,
+                        64
+                    ]
+                },
+                "Cookie Run: 50M Points Certificate": {
+                    "icon": "Cookie Run- 50M Points Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        54,
+                        55,
+                        56,
+                        57,
+                        58,
+                        59,
+                        60,
+                        61,
+                        62,
+                        63
+                    ]
                 }
             }
         },
