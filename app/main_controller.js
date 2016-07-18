@@ -3,6 +3,8 @@ import _ from 'lodash';
 export class MainController {
 
   constructor($scope, dataJson, $timeout) {
+    $scope.runningFromGithub = () => window.location.host === 'pgrobban.github.io';
+
     $scope.result = {
       totalCrystals: 0,
       averageCrystals: 0
