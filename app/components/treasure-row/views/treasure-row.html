@@ -1,5 +1,25 @@
 <td><img ng-src="{{ vm.treasure.iconUrl }}" alt=""></td>
-<td>{{ vm.treasure.name }} {{ vm.treasure.treasureInstance.crystals }} {{ vm.treasure.treasureInstance.average }} </td>
+<td>{{ vm.treasure.name }}
+  <div ng-if="vm.treasure.treasureInstance.level > -1" class="hidden-xs small">
+    <table class="small">
+      <tr>
+        <td></td>
+        <td><strong>Crystals/earning:</strong></td>
+        <td>{{ vm.treasure.treasureInstance.crystals }} </td>
+      </tr>
+      <tr>
+        <td>x</td>
+        <td><strong>Probability:</strong></td>
+        <td>{{ vm.treasure.treasureInstance.probabilityPercent }}%</td>
+      </tr>
+      <tr>
+        <td>=</td>
+        <td><strong>Average earnings/day:</strong></td>
+        <td>{{ vm.treasure.treasureInstance.average | round }} </td>
+      </tr>
+    </table>
+  </div>
+</td>
 <td> 
   <select ng-model="vm.treasure.treasureInstance.level" class="form-control"  
     ng-options="lvl.value as lvl.name for lvl in levelOptions"

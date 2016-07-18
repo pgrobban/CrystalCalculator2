@@ -63,8 +63,6 @@ class TreasureRowController {
     this.$scope.element.html('');
     this.$scope.element.remove();
     this.$scope.$destroy();
-
-    // need to delete in parent
   }
 }
 

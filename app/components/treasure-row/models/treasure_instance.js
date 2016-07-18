@@ -4,29 +4,34 @@ import { cloneDeep } from 'lodash';
 export default class TreasureInstance {
 
   constructor(treasureModel, level) {
-    this.treasureModel = cloneDeep(treasureModel);
+    this.probabilityPercents = treasureModel.getCrystalProbabilityPercents();
+    this.crystalsIfPossessed = treasureModel.getCrystals();
+
     if (!level) {
       this.level = -1;
       this.crystals = 0; // a treasure can appear in a row without the player having it, then we set it to be worth 0 crystals to help summation.
       this.average = 0;
+      this.probabilityPercent = 0;
     } else {
       this.level = level;
-      this.crystals = treasureModel.getCrystals();
+      this.crystals = this.crystalsIfPossessed;
+      this.probabilityPercent = this.probabilityPercents[level];
       this.average = this._calculateAverage();
     }
   }
 
   _calculateAverage() {
-    const probabilities = this.treasureModel.getCrystalProbabilityPercents();
-    return (probabilities[this.level] / 100) * this.crystals;
+    return (this.probabilityPercent / 100) * this.crystals;
   }
 
   updateCrystalProbability() {
     if (this.level === -1) {
       this.crystals = 0;
+      this.probabilityPercent = 0;
       this.average = 0;
     } else {
-      this.crystals = this.treasureModel.getCrystals();
+      this.crystals = this.crystalsIfPossessed;
+      this.probabilityPercent = this.probabilityPercents[this.level];
       this.average = this._calculateAverage();
     }
   }
