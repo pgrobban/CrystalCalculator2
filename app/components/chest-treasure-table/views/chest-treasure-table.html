@@ -3,15 +3,10 @@
     <h3 class="panel-title" ng-bind="vm.description"></h3>
   </div>
   <div class="panel-body">
-    <form class="form-inline">
-      <div class="form-group">
-        <label>Add a treasure:</label>
-        <select ng-model="vm.selectedTreasure" class="form-control btn-success" ng-change="vm.chestTreasureSelectChanged()"> 
-          <option value="none" ng-disabled="true">Select a treasure to add...</option>
-          <option ng-repeat="treasureName in vm.selectableTreasureNames">{{ treasureName }}</option>
-        </select>
-      </div>
-    </form>
+    <select ng-model="vm.selectedTreasure" class="form-control" ng-change="vm.chestTreasureSelectChanged()"> 
+      <option value="none" ng-disabled="true">Select a treasure to add...</option>
+      <option ng-repeat="treasureName in vm.selectableTreasureNames">{{ treasureName }}</option>
+    </select>
     <table class="table table-responsive treasures-table">
       <thead>
         <tr>
@@ -19,8 +14,7 @@
             <!--Icon-->
           </th>
           <th>Name</th>
-          <th>Select level/
-            <wbr>don't have</th>
+          <th>Select level/<wbr>don't have</th>
         </tr>
       </thead>
       <tbody>
