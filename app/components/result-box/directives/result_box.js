@@ -9,7 +9,7 @@ app.controller('ResultBoxController', ResultBoxController);
 
 app.directive('resultBox', () => ({
   restrict: 'E',
-  templateUrl: '/app/components/result-box/views/result-box.html',
+  templateUrl: 'app/components/result-box/views/result-box.html',
   bindToController: true,
   controller: ResultBoxController,
   controllerAs: 'vm',
