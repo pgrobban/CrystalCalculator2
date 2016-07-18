@@ -11,7 +11,6 @@ export class TreasureFactory {
   }
 
   $get(name) {
-    console.log("**** in factory with name", name);
     this.name = name;
     this.treasure = cloneDeep(this._findTreasureDataInJson(name));
     return this;

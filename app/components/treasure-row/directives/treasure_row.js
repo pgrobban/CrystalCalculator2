@@ -6,41 +6,43 @@ const levelOptions = [{
   value: -1,
   name: "Don't have"
 }, {
-  value: 0,
-  name: '+0 (Unupgraded)'
-}, {
-  value: 1,
-  name: '+1'
-}, {
-  value: 2,
-  name: '+2'
-}, {
-  value: 3,
-  name: '+3'
-}, {
-  value: 4,
-  name: '+4'
-}, {
-  value: 5,
-  name: '+5'
-}, {
-  value: 6,
-  name: '+6'
-}, {
-  value: 7,
-  name: '+7'
-}, {
-  value: 8,
-  name: '+8'
-}, {
-  value: 9,
-  name: '+9'
-}
+    value: 0,
+    name: '+0 (Unupgraded)'
+  }, {
+    value: 1,
+    name: '+1'
+  }, {
+    value: 2,
+    name: '+2'
+  }, {
+    value: 3,
+    name: '+3'
+  }, {
+    value: 4,
+    name: '+4'
+  }, {
+    value: 5,
+    name: '+5'
+  }, {
+    value: 6,
+    name: '+6'
+  }, {
+    value: 7,
+    name: '+7'
+  }, {
+    value: 8,
+    name: '+8'
+  }, {
+    value: 9,
+    name: '+9'
+  }
 ];
 
 class TreasureRowController {
 
-  constructor($scope, TreasureFactory) {
+  constructor($scope, TreasureFactory, $timeout) {
+    this.$scope = $scope;
+    this.$timeout = $timeout;
     // this = $scope.vm
     // the treasure model is the static data that holds for all treasures of one kind.
     this.treasureModel = TreasureFactory.$get(this.treasure.name);
@@ -54,6 +56,16 @@ class TreasureRowController {
     this.treasure.treasureInstance.updateCrystalProbability();
     this.triggerTableRecalculateValues();
   }
+
+  delete() {
+    this.treasure.treasureInstance.level = -1;
+    this.updateTreasureCrystalsValue();
+    this.$scope.element.html('');
+    this.$scope.element.remove();
+    this.$scope.$destroy();
+
+    // need to delete in parent
+  }
 }
 
 app.controller('TreasureRowController', TreasureRowController);
@@ -64,8 +76,12 @@ app.directive('treasure', () => ({
   bindToController: true,
   controller: TreasureRowController,
   controllerAs: 'vm',
+  link: (scope, element) => {
+    scope.element = element;
+  },
   scope: {
     treasure: '=?',
+    deletable: '=',
     triggerTableRecalculateValues: '&'
   }
 }));

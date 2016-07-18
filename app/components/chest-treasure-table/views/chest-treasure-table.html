@@ -24,7 +24,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="treasure in vm.treasures" treasure-row treasure="treasure" trigger-table-recalculate-values="vm.triggerTableRecalculateValues()"></tr>
+        <tr ng-repeat="treasure in vm.treasures" treasure-row treasure="treasure" 
+        trigger-table-recalculate-values="vm.triggerTableRecalculateValues()" deletable="true"></tr>
       </tbody>
     </table>
   </div>

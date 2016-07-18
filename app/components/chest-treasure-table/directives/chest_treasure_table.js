@@ -6,7 +6,7 @@ class ChestTreasureTableController {
 
   constructor(dataJson, $timeout) {
     // this == $scope.vm
-    this.description = dataJson.chestTreasures.description;
+    this.description = dataJson.chestTreasures.chestTreasures.description;
     this.treasures = [];
     this.selectableTreasureNames = Object.keys(dataJson.chestTreasures.chestTreasures.treasures);
     this.selectedTreasure = 'none';
