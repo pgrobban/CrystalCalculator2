@@ -2,7 +2,6 @@
 <html ng-app="crystalCalculatorApp">
 
 <head>
-    <base ng-if="runningFromGithub()" href="//pgrobban.github.io/CrystalCalculator2/">
     <title>pgrobban's Crystal Calculator</title>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
@@ -37,7 +36,7 @@
                     of the screen. If you scroll down to the bottom, you will also see the top five recommended treasures
                     for you to upgrade. Neat, huh? :)</p>
                 
-                <p ng-if="typeof(Storage) !== 'undefined'"><strong>Note: Your browser has no support for web storage.</strong> This means your data will not be saved
+                <p ng-if="typeof(Storage) === 'undefined'"><strong>Note: Your browser has no support for web storage.</strong> This means your data will not be saved
                 when you close your browser or this tab.</p>
 
             </div>

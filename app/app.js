@@ -6,6 +6,12 @@ import { round } from 'lodash';
 
 const app = angular.module('crystalCalculatorApp', []);
 
+if (Storage) {
+  if (!localStorage.treasures) {
+    localStorage.treasures = '{}';
+  }
+}
+
 app.value('dataJson', dataJson);
 app.factory('TreasureFactory', () => new TreasureFactory(dataJson));
 app.controller('MainController', ($scope, dataJson, $timeout) =>
