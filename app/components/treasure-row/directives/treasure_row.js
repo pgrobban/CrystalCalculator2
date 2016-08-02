@@ -40,10 +40,12 @@ const levelOptions = [{
 
 class TreasureRowController {
 
-  constructor($scope, TreasureFactory, $timeout) {
+  constructor($scope, TreasureFactory, $timeout, StateService) {
+    // this = $scope.vm
     this.$scope = $scope;
     this.$timeout = $timeout;
-    // this = $scope.vm
+    this.StateService = StateService;
+
     // the treasure model is the static data that holds for all treasures of one kind.
     this.treasureModel = TreasureFactory.$get(this.treasure.name);
     this.treasure.iconUrl = this.treasureModel.getIconUrl();
@@ -55,6 +57,7 @@ class TreasureRowController {
   updateTreasureCrystalsValue() {
     this.treasure.treasureInstance.updateCrystalProbability();
     this.triggerTableRecalculateValues();
+    console.log(this.StateService);
   }
 
   delete() {
