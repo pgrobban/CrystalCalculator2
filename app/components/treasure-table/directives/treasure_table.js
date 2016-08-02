@@ -4,20 +4,25 @@ const app = angular.module('crystalCalculatorApp');
 
 class TreasureTableController {
 
-  constructor(dataJson, StateService) {
+  constructor(dataJson, StateService, $timeout) {
     this.StateService = StateService;
     // this == $scope.vm
     this.description = dataJson.uniqueTreasures[this.collectionName].description;
     this.treasures = [];
 
+    if (!StateService.model[this.collectionName]) {
+      StateService.model[this.collectionName] = {};
+    }
+
     const treasureNamesInThisCollection = Object.keys(dataJson.uniqueTreasures[this.collectionName].treasures);
     forEach(treasureNamesInThisCollection, (treasureName) => {
       this.treasures.push({
-        name: treasureName
+        name: treasureName,
+        level: StateService.model[this.collectionName][treasureName] ? StateService.model[this.collectionName][treasureName].level : -1
+        // level shouldn't be here but currently I don't know any way to pass to the treasureInstance instead of treasure
       });
     });
-    this.totalCrystals = 0;
-    this.averageCrystals = 0;
+    $timeout(this.triggerTableRecalculateValues.bind(this), 100); // because treasure.treasureInstance is undefined before the directives are created
   }
 
   triggerTableRecalculateValues() {
@@ -28,7 +33,7 @@ class TreasureTableController {
     forEach(this.treasures, (treasure) => {
       totalCrystals += treasure.treasureInstance.crystals;
       averageCrystals += treasure.treasureInstance.average;
-      
+
       this.StateService.model[this.collectionName][treasure.name] = {
         level: treasure.treasureInstance.level
       };
@@ -37,8 +42,8 @@ class TreasureTableController {
     this.averageCrystals = averageCrystals;
 
     this.StateService.saveState();
-
     this.mainRecalculate();
+    console.log(this.treasures);
   }
 
 }

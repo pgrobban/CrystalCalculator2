@@ -5,7 +5,7 @@ export default class TreasureInstance {
     this.probabilityPercents = treasureModel.getCrystalProbabilityPercents();
     this.crystalsIfPossessed = treasureModel.getCrystals();
 
-    if (!level) {
+    if (!level || level === -1) {
       this.level = -1;
       this.crystals = 0; // a treasure can appear in a row without the player having it, then we set it to be worth 0 crystals to help summation.
       this.average = 0;
