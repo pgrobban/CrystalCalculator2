@@ -1,5 +1,3 @@
-import { cloneDeep } from 'lodash';
-
 // treasure instance holds values specific to an instance of a treasure, such as level.
 export default class TreasureInstance {
 

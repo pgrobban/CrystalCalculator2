@@ -4,10 +4,12 @@ const app = angular.module('crystalCalculatorApp');
 
 class TreasureTableController {
 
-  constructor(dataJson) {
+  constructor(dataJson, StateService) {
+    this.StateService = StateService;
     // this == $scope.vm
     this.description = dataJson.uniqueTreasures[this.collectionName].description;
     this.treasures = [];
+
     const treasureNamesInThisCollection = Object.keys(dataJson.uniqueTreasures[this.collectionName].treasures);
     forEach(treasureNamesInThisCollection, (treasureName) => {
       this.treasures.push({
@@ -22,12 +24,19 @@ class TreasureTableController {
     let totalCrystals = 0;
     let averageCrystals = 0;
 
+    this.StateService.model[this.collectionName] = {};
     forEach(this.treasures, (treasure) => {
       totalCrystals += treasure.treasureInstance.crystals;
       averageCrystals += treasure.treasureInstance.average;
+      
+      this.StateService.model[this.collectionName][treasure.name] = {
+        level: treasure.treasureInstance.level
+      };
     });
     this.totalCrystals = totalCrystals;
     this.averageCrystals = averageCrystals;
+
+    this.StateService.saveState();
 
     this.mainRecalculate();
   }
