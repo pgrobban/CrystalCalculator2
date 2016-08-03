@@ -43,7 +43,6 @@ class TreasureTableController {
 
     this.StateService.saveState();
     this.mainRecalculate();
-    console.log(this.treasures);
   }
 
 }
