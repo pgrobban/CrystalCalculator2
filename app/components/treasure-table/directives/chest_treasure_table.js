@@ -12,10 +12,10 @@ class ChestTreasureTableController {
     this.selectedTreasure = 'none';
 
     this.treasures = [];
-    if (!StateService.model[this.collectionName]) {
-      StateService.model[this.collectionName] = [];
+    if (!StateService.getModel(this.collectionName)) {
+      StateService.setModel(this.collectionName, []);
     } else {
-      forEach(StateService.model[this.collectionName], (storedTreasure) => {
+      forEach(StateService.getModel(this.collectionName), (storedTreasure) => {
         if (storedTreasure) {
           this.treasures.push({
             name: storedTreasure.name,
@@ -39,10 +39,10 @@ class ChestTreasureTableController {
     this.totalCrystals = totalCrystals;
     this.averageCrystals = averageCrystals;
 
-    this.StateService.model[this.collectionName] = map(this.treasures, (treasure) => ({
+    this.StateService.setModel(this.collectionName, map(this.treasures, (treasure) => ({
       name: treasure.name,
       level: treasure.treasureInstance.level
-    }));
+    })));
     this.StateService.saveState();
 
     this.mainRecalculate();

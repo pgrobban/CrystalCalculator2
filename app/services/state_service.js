@@ -14,6 +14,15 @@ export default class StateService {
     }
   }
 
+  getModel(key) {
+    return this.model[key];
+  }
+
+  setModel(key, value) {
+    this.model[key] = value;
+    this.saveState();
+  }
+
   saveState() {
     localStorage.treasures = angular.toJson(this.model);
   }

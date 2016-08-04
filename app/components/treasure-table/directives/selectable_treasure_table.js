@@ -9,12 +9,12 @@ class SelectableTreasureTableController {
     this.StateService = StateService;
     this.description = dataJson.selectableTreasures[this.collectionName].description;
 
-    if (!StateService.model[this.collectionName] || !StateService.model[this.collectionName].name) {
-      StateService.model[this.collectionName] = {};
+    if (!StateService.getModel(this.collectionName) || !StateService.getModel(this.collectionName).name) {
+      StateService.setModel(this.collectionName, {});
       this.treasure = null;
       this.selectedTreasure = 'none';
     } else {
-      const storedTreasure = StateService.model[this.collectionName];
+      const storedTreasure = StateService.getModel(this.collectionName);
       this.selectedTreasure = storedTreasure.name;
       this.treasure = {
         name: storedTreasure.name,
@@ -48,7 +48,7 @@ class SelectableTreasureTableController {
   updateSelectedTreasure() {
     if (this.selectedTreasure === 'none') {
       this.treasure = null;
-      this.StateService.model[this.collectionName] = {};
+      this.StateService.setModel(this.collectionName, {});
       this.StateService.saveState();
       this.triggerTableRecalculateValues();
     } else {
@@ -56,7 +56,7 @@ class SelectableTreasureTableController {
       this.$timeout(() => {
         this.treasure = ({
           name: this.selectedTreasure,
-          level: this.StateService.model[this.collectionName][this.selectedTreasure] ?
+          level: this.StateService.getModel(this.collectionName)[this.selectedTreasure] ?
             this.StateService.model[this.collectionName][this.selectedTreasure].level : -1
         });
         this.StateService.model[this.collectionName] = {
