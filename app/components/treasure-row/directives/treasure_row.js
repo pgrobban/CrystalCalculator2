@@ -65,6 +65,7 @@ class TreasureRowController {
     this.$scope.element.html('');
     this.$scope.element.remove();
     this.$scope.$destroy();
+    this.onDelete();
   }
 }
 
@@ -82,6 +83,7 @@ app.directive('treasure', () => ({
   scope: {
     treasure: '=?',
     deletable: '=',
+    onDelete: '&?',
     triggerTableRecalculateValues: '&'
   }
 }));

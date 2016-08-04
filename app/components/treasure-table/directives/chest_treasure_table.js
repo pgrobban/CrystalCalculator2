@@ -11,14 +11,18 @@ class ChestTreasureTableController {
     this.selectableTreasureNames = Object.keys(dataJson.chestTreasures.chestTreasures.treasures);
     this.selectedTreasure = 'none';
 
+    this.treasures = [];    
     if (!StateService.model[this.collectionName]) {
       StateService.model[this.collectionName] = [];
-      this.treasures = [];
     } else {
-      this.treasures = map(StateService.model[this.collectionName], (storedTreasure) => ({
-        name: storedTreasure.name,
-        level: storedTreasure.level
-      }));
+      forEach(StateService.model[this.collectionName], (storedTreasure) => {
+        if (storedTreasure) {
+          this.treasures.push({
+            name: storedTreasure.name,
+            level: storedTreasure.level
+          });
+        }
+      });
     }
 
     $timeout(this.triggerTableRecalculateValues.bind(this), 50);
@@ -53,6 +57,11 @@ class ChestTreasureTableController {
       });
       this.selectedTreasure = 'none';
     }
+  }
+
+  treasureDeleted(index) {
+    this.StateService.model[this.collectionName][index] = undefined;
+    this.StateService.saveState();
   }
 
 }

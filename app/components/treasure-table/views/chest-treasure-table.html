@@ -18,8 +18,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="treasure in vm.treasures" treasure-row treasure="treasure" 
-        trigger-table-recalculate-values="vm.triggerTableRecalculateValues()" deletable="true"></tr>
+        <tr ng-repeat="treasure in vm.treasures track by $index" treasure-row treasure="treasure" 
+        trigger-table-recalculate-values="vm.triggerTableRecalculateValues()" 
+        deletable="true" on-delete="vm.treasureDeleted($index)"></tr>
       </tbody>
     </table>
   </div>
