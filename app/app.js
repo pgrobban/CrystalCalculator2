@@ -4,7 +4,6 @@ import dataJson from '../data/treasures.json';
 import { MainController } from './main_controller';
 import * as services from './services';
 import { round } from 'lodash';
-console.log(services)
 
 const app = angular.module('crystalCalculatorApp', []);
 

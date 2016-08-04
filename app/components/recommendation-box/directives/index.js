@@ -1,0 +1,1 @@
+require('./recommendation_box');
