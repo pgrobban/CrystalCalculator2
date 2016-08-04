@@ -2,7 +2,8 @@ import angular from 'angular';
 
 export default class StateService {
 
-  constructor() {
+  constructor($rootScope) {
+    this.$rootScope = $rootScope;
     if (Storage) {
       if (!localStorage.treasures) {
         this.model = {};
@@ -10,7 +11,7 @@ export default class StateService {
         this.restoreState();
       }
     } else {
-      this.saveState = this.restoreState = () => { };
+      this.model = {};
     }
   }
 
@@ -20,11 +21,14 @@ export default class StateService {
 
   setModel(key, value) {
     this.model[key] = value;
+    this.$rootScope.$emit('stateChanged', this.model);
     this.saveState();
   }
 
   saveState() {
-    localStorage.treasures = angular.toJson(this.model);
+    if (Storage) {
+      localStorage.treasures = angular.toJson(this.model);
+    }
   }
 
   restoreState() {

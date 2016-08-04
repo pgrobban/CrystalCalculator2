@@ -9,7 +9,7 @@ const app = angular.module('crystalCalculatorApp', []);
 
 app.value('dataJson', dataJson);
 app.factory('TreasureFactory', () => new TreasureFactory(dataJson));
-app.factory('StateService', () => new services.StateService());
+app.factory('StateService', ($rootScope) => new services.StateService($rootScope));
 app.controller('MainController', ($scope, dataJson, $timeout) =>
   new MainController($scope, dataJson, $timeout));
 

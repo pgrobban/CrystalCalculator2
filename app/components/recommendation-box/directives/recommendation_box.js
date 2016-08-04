@@ -1,7 +1,12 @@
 import angular from 'angular';
+import UpgradeRecommendationService from '../services/upgrade_recommendation_service';
 const app = angular.module('crystalCalculatorApp');
 
 class RecommendationBoxController {
+
+  constructor($rootScope, dataJson) {
+    this.upgradeRecommendationService = new UpgradeRecommendationService($rootScope, dataJson);
+  }
 
 }
 
