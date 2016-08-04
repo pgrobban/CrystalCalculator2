@@ -29,16 +29,16 @@ class TreasureTableController {
     let totalCrystals = 0;
     let averageCrystals = 0;
 
-    //this.StateService.setModel(this.collectionName, {});
+    const saveModel = this.StateService.getModel(this.collectionName);
     forEach(this.treasures, (treasure) => {
       totalCrystals += treasure.treasureInstance.crystals;
       averageCrystals += treasure.treasureInstance.average;
 
-      this.StateService.model[this.collectionName][treasure.name] = {
+      saveModel[treasure.name] = {
         level: treasure.treasureInstance.level
       };
     });
-    this.StateService.saveState();
+    this.StateService.setModel(this.collectionName, saveModel);
 
     this.totalCrystals = totalCrystals;
     this.averageCrystals = averageCrystals;

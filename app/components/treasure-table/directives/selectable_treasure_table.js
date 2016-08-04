@@ -39,8 +39,10 @@ class SelectableTreasureTableController {
     this.mainRecalculate();
     if (this.treasure) {
       this.$timeout(() => {
-        this.StateService.model[this.collectionName].level = this.treasure.treasureInstance.level;
-        this.StateService.saveState();
+        this.StateService.setModel(this.collectionName, {
+          name: this.selectedTreasure,
+          level: this.treasure.treasureInstance.level
+        });
       }, 0);
     }
   }
@@ -54,16 +56,15 @@ class SelectableTreasureTableController {
     } else {
       this.treasure = null;
       this.$timeout(() => {
+        const storedTreasure = this.StateService.getModel(this.collectionName)[this.selectedTreasure];
         this.treasure = ({
           name: this.selectedTreasure,
-          level: this.StateService.getModel(this.collectionName)[this.selectedTreasure] ?
-            this.StateService.model[this.collectionName][this.selectedTreasure].level : -1
+          level: storedTreasure ? storedTreasure.level : -1
         });
-        this.StateService.model[this.collectionName] = {
+        this.StateService.setModel(this.collectionName, {
           name: this.selectedTreasure,
           level: this.treasure.level
-        };
-        this.StateService.saveState();
+        });
         this.triggerTableRecalculateValues();
       });
     }
