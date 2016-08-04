@@ -5,7 +5,11 @@ const app = angular.module('crystalCalculatorApp');
 class RecommendationBoxController {
 
   constructor($rootScope, dataJson) {
-    this.upgradeRecommendationService = new UpgradeRecommendationService($rootScope, dataJson);
+    this.result = [];
+    const recommendationService = new UpgradeRecommendationService($rootScope, dataJson);
+    $rootScope.$on('stateChanged', (evt, data) => {
+      this.result = recommendationService.getRecommendationList(data);
+    });
   }
 
 }
@@ -17,9 +21,6 @@ app.directive('recommendationBox', () => ({
   templateUrl: 'app/components/recommendation-box/views/recommendation-box.html',
   bindToController: true,
   controller: RecommendationBoxController,
-  controllerAs: 'vm',
-  scope: {
-    result: '='
-  }
+  controllerAs: 'vm'
 }));
 

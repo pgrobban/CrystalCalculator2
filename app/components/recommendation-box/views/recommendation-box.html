@@ -1,3 +1,19 @@
 <div>
-  hello
+  <table class="table tbl-responsive treasures-table">
+    <caption>Recommended treasures to upgrade</caption>
+    <thead>
+      <tr>
+        <th><!-- icon --></th>
+        <th>Level</th>
+        <th>Avg. profit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="treasure in vm.result">
+        <td><img src="{{ treasure.icon }}"></td>
+        <td>{{ treasure.level }} &rarr; {{ treasure.level + 1 }}</td>
+        <td>{{ treasure.profitData.currentProfit | round }} &rarr; {{ treasure.profitData.profitWhenUpgraded | round}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
