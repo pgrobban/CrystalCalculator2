@@ -11,7 +11,7 @@ class ChestTreasureTableController {
     this.selectableTreasureNames = Object.keys(dataJson.chestTreasures.chestTreasures.treasures);
     this.selectedTreasure = 'none';
 
-    this.treasures = [];    
+    this.treasures = [];
     if (!StateService.model[this.collectionName]) {
       StateService.model[this.collectionName] = [];
     } else {
