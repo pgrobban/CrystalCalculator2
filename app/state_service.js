@@ -2,16 +2,15 @@ import angular from 'angular';
 
 export class StateService {
 
-  constructor($rootScope) {
+  constructor() {
     if (Storage) {
       if (!localStorage.treasures) {
         this.model = {};
       } else {
         this.restoreState();
       }
-
-      $rootScope.$on('saveState', this.saveState);
-      $rootScope.$on('restoreState', this.restoreState);
+    } else {
+      this.saveState = this.restoreState = () => { };
     }
   }
 

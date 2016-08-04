@@ -1,18 +1,27 @@
 import angular from 'angular';
-import { forEach } from 'lodash';
+import { forEach, map } from 'lodash';
 const app = angular.module('crystalCalculatorApp');
 
 class ChestTreasureTableController {
 
-  constructor(dataJson, $timeout) {
+  constructor(dataJson, $timeout, StateService) {
     // this == $scope.vm
+    this.StateService = StateService;
     this.description = dataJson.chestTreasures.chestTreasures.description;
-    this.treasures = [];
     this.selectableTreasureNames = Object.keys(dataJson.chestTreasures.chestTreasures.treasures);
     this.selectedTreasure = 'none';
 
-    this.totalCrystals = 0;
-    this.averageCrystals = 0;
+    if (!StateService.model[this.collectionName]) {
+      StateService.model[this.collectionName] = [];
+      this.treasures = [];
+    } else {
+      this.treasures = map(StateService.model[this.collectionName], (storedTreasure) => ({
+        name: storedTreasure.name,
+        level: storedTreasure.level
+      }));
+    }
+
+    $timeout(this.triggerTableRecalculateValues.bind(this), 50);
   }
 
   triggerTableRecalculateValues() {
@@ -25,6 +34,12 @@ class ChestTreasureTableController {
     });
     this.totalCrystals = totalCrystals;
     this.averageCrystals = averageCrystals;
+
+    this.StateService.model[this.collectionName] = map(this.treasures, (treasure) => ({
+      name: treasure.name,
+      level: treasure.treasureInstance.level
+    }));
+    this.StateService.saveState();
 
     this.mainRecalculate();
   }
