@@ -45,7 +45,7 @@ export default class UpgradeRecommendationService {
     const selectableTreasureCollections = _.keys(this.dataJson.selectableTreasures);
     _.forEach(selectableTreasureCollections, (collection) => {
       if (model[collection] && model[collection].name && model[collection].level !== -1) {
-        treasures.push(model[collection]); 
+        treasures.push(model[collection]);
       }
     });
     return treasures;

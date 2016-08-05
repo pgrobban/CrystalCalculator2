@@ -43,7 +43,7 @@ class SelectableTreasureTableController {
           name: this.selectedTreasure,
           level: this.treasure.treasureInstance.level
         });
-      }, 0);
+      }, 50);
     }
   }
 
