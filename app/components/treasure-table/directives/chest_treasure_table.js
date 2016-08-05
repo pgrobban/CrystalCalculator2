@@ -25,7 +25,7 @@ class ChestTreasureTableController {
       });
     }
 
-    $timeout(this.triggerTableRecalculateValues.bind(this), 100);
+    $timeout(this.triggerTableRecalculateValues.bind(this), 50);
   }
 
   triggerTableRecalculateValues() {
@@ -43,7 +43,6 @@ class ChestTreasureTableController {
       name: treasure.name,
       level: treasure.treasureInstance.level
     })));
-    this.StateService.saveState();
 
     this.mainRecalculate();
   }

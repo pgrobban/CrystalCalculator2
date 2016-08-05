@@ -43,7 +43,9 @@ class SelectableTreasureTableController {
           name: this.selectedTreasure,
           level: this.treasure.treasureInstance.level
         });
-      }, 100);
+      }, 50);
+    } else {
+      this.StateService.setModel(this.collectionName, {});
     }
   }
 
@@ -51,7 +53,6 @@ class SelectableTreasureTableController {
     if (this.selectedTreasure === 'none') {
       this.treasure = null;
       this.StateService.setModel(this.collectionName, {});
-      this.StateService.saveState();
       this.triggerTableRecalculateValues();
     } else {
       this.treasure = null;
