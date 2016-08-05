@@ -58,10 +58,10 @@ class SelectableTreasureTableController {
       this.treasure = null;
       this.$timeout(() => {
         const storedTreasure = this.StateService.getModel(this.collectionName)[this.selectedTreasure];
-        this.treasure = ({
+        this.treasure = {
           name: this.selectedTreasure,
           level: storedTreasure ? storedTreasure.level : -1
-        });
+        };
         this.StateService.setModel(this.collectionName, {
           name: this.selectedTreasure,
           level: this.treasure.level

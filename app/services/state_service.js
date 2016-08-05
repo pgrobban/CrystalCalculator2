@@ -1,3 +1,4 @@
+import { cloneDeep } from 'lodash';
 import angular from 'angular';
 
 export default class StateService {
@@ -20,7 +21,7 @@ export default class StateService {
   }
 
   setModel(key, value) {
-    this.model[key] = value;
+    this.model[key] = cloneDeep(value);
     this.$rootScope.$emit('stateChanged', this.model);
     this.saveState();
   }

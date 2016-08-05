@@ -16,10 +16,11 @@ export default class UpgradeRecommendationService {
   }
 
   _getTreasuresArray(model) {
+    const treasuresArray = _.cloneDeep(model);
     const treasures = [].concat(
-      this._getUniqueTreasures(model),
-      this._getSelectableTreasures(model),
-      this._getChestTreasures(model)
+      this._getUniqueTreasures(treasuresArray),
+      this._getSelectableTreasures(treasuresArray),
+      this._getChestTreasures(treasuresArray)
     );
     return treasures;
   }
