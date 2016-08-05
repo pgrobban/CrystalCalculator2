@@ -26,7 +26,7 @@ gulp.task('es6', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch(['./app/**/*.js'], ['es6']);
+    gulp.watch(['./app/**/*.js', './data/**/*.json'], ['es6']);
 });
 
 gulp.task('default', ['es6', 'watch']);

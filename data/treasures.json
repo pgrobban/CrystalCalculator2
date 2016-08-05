@@ -318,6 +318,86 @@
         "trophyTreasures": {
             "description": "Trophy treasures",
             "treasures": {
+                "Trophy of Glory: Master I": {
+                    "icon": "Trophy Treasure Master I.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        50
+                    ]
+                },
+                "Trophy of Glory: Master II": {
+                    "icon": "Trophy Treasure Master II.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        50
+                    ]
+                },
+                "Trophy of Glory: Master III": {
+                    "icon": "Trophy Treasure Master III.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        50
+                    ]
+                },
+                "Trophy of Glory: Master IV": {
+                    "icon": "Trophy Treasure Master IV.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        50
+                    ]
+                },
+                "Trophy of Glory: Master V": {
+                    "icon": "Trophy Treasure Master V.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        50
+                    ]
+                },
                 "Trophy of Glory: King IV": {
                     "icon": "Trophy of Glory King IV.png",
                     "crystals": 1,
