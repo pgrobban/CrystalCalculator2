@@ -1,16 +1,16 @@
 <div>
   <table class="table tbl-responsive treasures-table">
-    <caption>Recommended treasures to upgrade</caption>
+    <caption>Recommended treasures to upgrade:</caption>
     <thead>
       <tr>
         <th><!-- icon --></th>
         <th>Level</th>
-        <th>Avg. profit</th>
+        <th>Avg. <img src="img/crystal.png" />/day:</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="treasure in vm.result">
-        <td><img src="{{ treasure.icon }}"></td>
+      <tr ng-repeat="treasure in vm.result | limitTo:3">
+        <td><img src="{{ treasure.iconUrl }}"/></td>
         <td>{{ treasure.level }} &rarr; {{ treasure.level + 1 }}</td>
         <td>{{ treasure.profitData.currentProfit | round }} &rarr; {{ treasure.profitData.profitWhenUpgraded | round}}</td>
       </tr>

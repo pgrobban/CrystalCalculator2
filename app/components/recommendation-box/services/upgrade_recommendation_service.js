@@ -10,7 +10,8 @@ export default class UpgradeRecommendationService {
   getRecommendationList(model) {
     const treasuresArray = this._getTreasuresArray(model);
     this._addProfitDataToTreasuresArray(treasuresArray);
-    const sortedTreasuresArray = this._sortTreasuresArrayBasedOnProfitWhenUpgrading(treasuresArray);
+    const filteredTreasures = this._filterMaxLevelTreasures(treasuresArray);
+    const sortedTreasuresArray = this._getSortedTreasuresArray(filteredTreasures);
     return sortedTreasuresArray;
   }
 
@@ -54,16 +55,20 @@ export default class UpgradeRecommendationService {
     return _.filter(model.chestTreasures, (treasure) => treasure.level !== -1);
   }
 
+  _filterMaxLevelTreasures(treasuresArray) {
+    const MAX_LEVEL = 9;
+    return _.filter(treasuresArray, (treasure) => treasure.level !== MAX_LEVEL);
+  }
+
   _addProfitDataToTreasuresArray(treasuresArray) {
-    const TREASURE_MAX_LEVEL = 9;
     _.forEach(treasuresArray, (treasure) => {
       if (!this.treasureDataMemo[treasure.name]) {
         this._addTreasureToMemo(treasure.name);
       }
-      treasure.icon = this.treasureDataMemo[treasure.name].icon;
+      treasure.iconUrl = this.treasureDataMemo[treasure.name].icon;
       treasure.profitData = {
         currentProfit: this.treasureDataMemo[treasure.name].averageProfitPerDay[treasure.level],
-        profitWhenUpgraded: treasure.level === TREASURE_MAX_LEVEL ? null : this.treasureDataMemo[treasure.name].averageProfitPerDay[treasure.level + 1]
+        profitWhenUpgraded: this.treasureDataMemo[treasure.name].averageProfitPerDay[treasure.level + 1]
       };
     });
   }
@@ -105,10 +110,8 @@ export default class UpgradeRecommendationService {
     return data;
   }
 
-  _sortTreasuresArrayBasedOnProfitWhenUpgrading(treasuresArray) {
-    return _.sortBy(treasuresArray, (treasure) => {
-      return treasure.profitData.profitWhenUpgrading;
-    }).reverse();
+  _getSortedTreasuresArray(treasuresArray) {
+    return _.sortBy(treasuresArray, (treasure) => treasure.profitData.profitWhenUpgraded).reverse();
   }
 
 }
