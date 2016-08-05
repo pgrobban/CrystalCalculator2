@@ -25,7 +25,7 @@ class ChestTreasureTableController {
       });
     }
 
-    $timeout(this.triggerTableRecalculateValues.bind(this), 50);
+    $timeout(this.triggerTableRecalculateValues.bind(this), 100);
   }
 
   triggerTableRecalculateValues() {
