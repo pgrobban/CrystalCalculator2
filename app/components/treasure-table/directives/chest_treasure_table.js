@@ -59,8 +59,9 @@ class ChestTreasureTableController {
   }
 
   treasureDeleted(index) {
-    this.StateService.model[this.collectionName][index] = undefined;
-    this.StateService.saveState();
+    const savedTreasures = this.StateService.getModel(this.collectionName);
+    savedTreasures[index] = undefined;
+    this.StateService.setModel(this.collectionName, savedTreasures);
   }
 
 }

@@ -52,7 +52,7 @@ export default class UpgradeRecommendationService {
   }
 
   _getChestTreasures(model) {
-    return _.filter(model.chestTreasures, (treasure) => treasure.level !== -1);
+    return _.filter(model.chestTreasures, (treasure) => treasure && treasure.level !== -1);
   }
 
   _filterMaxLevelTreasures(treasuresArray) {
