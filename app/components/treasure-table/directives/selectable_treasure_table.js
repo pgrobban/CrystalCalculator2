@@ -25,7 +25,7 @@ class SelectableTreasureTableController {
     const treasureNamesInThisCollection = Object.keys(dataJson.selectableTreasures[this.collectionName].treasures);
     this.selectableTreasureNames = treasureNamesInThisCollection;
 
-    $timeout(this.triggerTableRecalculateValues.bind(this), 0);
+    $timeout(this.triggerTableRecalculateValues.bind(this), 100);
   }
 
   triggerTableRecalculateValues() {
