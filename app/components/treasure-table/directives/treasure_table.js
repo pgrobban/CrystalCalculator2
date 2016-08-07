@@ -22,26 +22,16 @@ class TreasureTableController {
         // level shouldn't be here but currently I don't know any way to pass to the treasureInstance instead of treasure
       });
     });
-    $timeout(this.triggerTableRecalculateValues.bind(this), 100); // because treasure.treasureInstance is undefined before the directives are created
   }
 
-  triggerTableRecalculateValues() {
-    let totalCrystals = 0;
-    let averageCrystals = 0;
-
+  updateSaveState() {
     const saveModel = this.StateService.getModel(this.collectionName);
     forEach(this.treasures, (treasure) => {
-      totalCrystals += treasure.treasureInstance.crystals;
-      averageCrystals += treasure.treasureInstance.average;
-
       saveModel[treasure.name] = {
         level: treasure.treasureInstance.level
       };
     });
     this.StateService.setModel(this.collectionName, saveModel);
-
-    this.totalCrystals = totalCrystals;
-    this.averageCrystals = averageCrystals;
   }
 
 }
@@ -54,8 +44,6 @@ app.directive('treasureTable', () => ({
   controllerAs: 'vm',
   scope: {
     collectionName: '@',
-    treasures: '=?',
-    totalCrystals: '=',
-    averageCrystals: '='
+    treasures: '=?'
   }
 }));

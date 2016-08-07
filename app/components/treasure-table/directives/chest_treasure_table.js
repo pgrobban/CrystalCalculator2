@@ -71,8 +71,6 @@ app.directive('chestTreasureTable', () => ({
   controller: ChestTreasureTableController,
   controllerAs: 'vm',
   scope: {
-    collectionName: '@',
-    totalCrystals: '=',
-    averageCrystals: '='
+    collectionName: '@'
   }
 }));

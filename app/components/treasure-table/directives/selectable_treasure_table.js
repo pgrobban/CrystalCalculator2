@@ -79,8 +79,6 @@ app.directive('selectableTreasureTable', () => ({
   controller: SelectableTreasureTableController,
   controllerAs: 'vm',
   scope: {
-    collectionName: '@',
-    totalCrystals: '=',
-    averageCrystals: '='
+    collectionName: '@'
   }
 }));

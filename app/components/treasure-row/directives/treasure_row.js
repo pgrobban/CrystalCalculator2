@@ -54,14 +54,8 @@ class TreasureRowController {
     $scope.levelOptions = levelOptions;
   }
 
-  updateTreasureCrystalsValue() {
-    this.treasure.treasureInstance.updateCrystalProbability();
-    this.triggerTableRecalculateValues();
-  }
-
   delete() {
     this.treasure.treasureInstance.level = -1;
-    this.updateTreasureCrystalsValue();
     this.$scope.element.html('');
     this.$scope.element.remove();
     this.$scope.$destroy();
@@ -84,6 +78,6 @@ app.directive('treasure', () => ({
     treasure: '=?',
     deletable: '=',
     onDelete: '&?',
-    triggerTableRecalculateValues: '&'
+    onChange: '&'
   }
 }));
