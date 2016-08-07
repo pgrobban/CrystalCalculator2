@@ -2,58 +2,18 @@ import _ from 'lodash';
 
 export default class UpgradeRecommendationService {
 
-  constructor($rootScope, dataJson) {
+  constructor($rootScope, dataJson, GetTreasuresPossessedAsArrayService) {
     this.dataJson = dataJson;
+    this.GetTreasuresPossessedAsArrayService = GetTreasuresPossessedAsArrayService;
     this.treasureDataMemo = {};
   }
 
-  getRecommendationList(model) {
-    const treasuresArray = this._getTreasuresArray(model);
+  getRecommendationList(data) {
+    const treasuresArray = this.GetTreasuresPossessedAsArrayService.getTreasuresPossessedAsArray(data);
     this._addProfitDataToTreasuresArray(treasuresArray);
     const filteredTreasures = this._filterMaxLevelTreasures(treasuresArray);
     const sortedTreasuresArray = this._getSortedTreasuresArray(filteredTreasures);
     return sortedTreasuresArray;
-  }
-
-  _getTreasuresArray(model) {
-    const treasuresArray = _.cloneDeep(model);
-    const treasures = [].concat(
-      this._getUniqueTreasures(treasuresArray),
-      this._getSelectableTreasures(treasuresArray),
-      this._getChestTreasures(treasuresArray)
-    );
-    return treasures;
-  }
-
-  _getUniqueTreasures(model) {
-    const treasures = [];
-    const uniqueTreasureCollections = _.keys(this.dataJson.uniqueTreasures);
-    _.forEach(uniqueTreasureCollections, (collection) => {
-      _.forEach(model[collection], (treasure, name) => {
-        if (treasure.level !== -1) {
-          treasures.push({
-            name,
-            level: treasure.level
-          });
-        }
-      });
-    });
-    return treasures;
-  }
-
-  _getSelectableTreasures(model) {
-    const treasures = [];
-    const selectableTreasureCollections = _.keys(this.dataJson.selectableTreasures);
-    _.forEach(selectableTreasureCollections, (collection) => {
-      if (model[collection] && model[collection].name && model[collection].level !== -1) {
-        treasures.push(model[collection]);
-      }
-    });
-    return treasures;
-  }
-
-  _getChestTreasures(model) {
-    return _.filter(model.chestTreasures, (treasure) => treasure && treasure.level !== -1);
   }
 
   _filterMaxLevelTreasures(treasuresArray) {
