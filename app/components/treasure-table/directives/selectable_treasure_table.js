@@ -36,7 +36,6 @@ class SelectableTreasureTableController {
       this.totalCrystals = this.treasure.treasureInstance.crystals;
       this.averageCrystals = this.treasure.treasureInstance.average;
     }
-    this.mainRecalculate();
     if (this.treasure) {
       this.$timeout(() => {
         this.StateService.setModel(this.collectionName, {
@@ -82,7 +81,6 @@ app.directive('selectableTreasureTable', () => ({
   scope: {
     collectionName: '@',
     totalCrystals: '=',
-    averageCrystals: '=',
-    mainRecalculate: '='
+    averageCrystals: '='
   }
 }));

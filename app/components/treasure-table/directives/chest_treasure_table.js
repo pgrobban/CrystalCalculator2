@@ -43,8 +43,6 @@ class ChestTreasureTableController {
       name: treasure.name,
       level: treasure.treasureInstance.level
     })));
-
-    this.mainRecalculate();
   }
 
   chestTreasureSelectChanged() {
@@ -75,7 +73,6 @@ app.directive('chestTreasureTable', () => ({
   scope: {
     collectionName: '@',
     totalCrystals: '=',
-    averageCrystals: '=',
-    mainRecalculate: '='
+    averageCrystals: '='
   }
 }));
