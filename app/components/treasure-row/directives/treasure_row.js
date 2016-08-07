@@ -54,6 +54,11 @@ class TreasureRowController {
     $scope.levelOptions = levelOptions;
   }
 
+  levelChanged() {
+    this.treasure.treasureInstance.updateCrystalProbability();
+    this.onChange();
+  }
+
   delete() {
     this.treasure.treasureInstance.level = -1;
     this.$scope.element.html('');

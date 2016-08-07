@@ -24,25 +24,14 @@ class SelectableTreasureTableController {
 
     const treasureNamesInThisCollection = Object.keys(dataJson.selectableTreasures[this.collectionName].treasures);
     this.selectableTreasureNames = treasureNamesInThisCollection;
-
-    $timeout(this.triggerTableRecalculateValues.bind(this), 100);
   }
 
-  triggerTableRecalculateValues() {
-    if (!this.treasure || !this.treasure.treasureInstance) {
-      this.totalCrystals = 0;
-      this.averageCrystals = 0;
-    } else {
-      this.totalCrystals = this.treasure.treasureInstance.crystals;
-      this.averageCrystals = this.treasure.treasureInstance.average;
-    }
-    if (this.treasure) {
-      this.$timeout(() => {
-        this.StateService.setModel(this.collectionName, {
-          name: this.selectedTreasure,
-          level: this.treasure.treasureInstance.level
-        });
-      }, 50);
+  updateSaveState() {
+    if (this.treasure && this.treasure.treasureInstance) {
+      this.StateService.setModel(this.collectionName, {
+        name: this.selectedTreasure,
+        level: this.treasure.treasureInstance.level
+      });
     } else {
       this.StateService.setModel(this.collectionName, {});
     }
@@ -51,23 +40,15 @@ class SelectableTreasureTableController {
   updateSelectedTreasure() {
     if (this.selectedTreasure === 'none') {
       this.treasure = null;
-      this.StateService.setModel(this.collectionName, {});
-      this.triggerTableRecalculateValues();
     } else {
-      this.treasure = null;
+      this.treasure = null; // need to set to null to force deletion of element. otherwise treasureInstance will be normal object
       this.$timeout(() => {
-        const storedTreasure = this.StateService.getModel(this.collectionName)[this.selectedTreasure];
         this.treasure = {
-          name: this.selectedTreasure,
-          level: storedTreasure ? storedTreasure.level : -1
+          name: this.selectedTreasure
         };
-        this.StateService.setModel(this.collectionName, {
-          name: this.selectedTreasure,
-          level: this.treasure.level
-        });
-        this.triggerTableRecalculateValues();
-      });
+      }, 0);
     }
+    this.updateSaveState();
   }
 
 }
