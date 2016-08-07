@@ -4,7 +4,7 @@ const app = angular.module('crystalCalculatorApp');
 
 class TreasureTableController {
 
-  constructor(dataJson, StateService, $timeout) {
+  constructor(dataJson, StateService) {
     this.StateService = StateService;
     // this == $scope.vm
     this.description = dataJson.uniqueTreasures[this.collectionName].description;

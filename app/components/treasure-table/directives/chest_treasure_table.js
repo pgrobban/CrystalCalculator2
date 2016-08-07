@@ -24,24 +24,13 @@ class ChestTreasureTableController {
         }
       });
     }
-
-    $timeout(this.triggerTableRecalculateValues.bind(this), 100);
+    $timeout(this.updateSaveState.bind(this), 50);
   }
 
-  triggerTableRecalculateValues() {
-    let totalCrystals = 0;
-    let averageCrystals = 0;
-
-    forEach(this.treasures, (treasure) => {
-      totalCrystals += treasure.treasureInstance.crystals;
-      averageCrystals += treasure.treasureInstance.average;
-    });
-    this.totalCrystals = totalCrystals;
-    this.averageCrystals = averageCrystals;
-
+  updateSaveState() {
     this.StateService.setModel(this.collectionName, map(this.treasures, (treasure) => ({
       name: treasure.name,
-      level: treasure.treasureInstance.level
+      level: treasure.treasureInstance ? treasure.treasureInstance.level : -1
     })));
   }
 

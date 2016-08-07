@@ -2,31 +2,19 @@ import _ from 'lodash';
 
 export class MainController {
 
-  constructor($scope, dataJson, $timeout) {
+  constructor($scope, dataJson) {
     $scope.runningFromGithub = window.location.host === 'pgrobban.github.io';
-
-    $scope.result = {
-      totalCrystals: 0,
-      averageCrystals: 0
-    };
 
     // init main collections
     const treasureCollectionNames = _.keys(dataJson.uniqueTreasures);
     $scope.treasureTables = _.map(treasureCollectionNames, (collectionName) => ({
-      collectionName,
-      totalCrystals: 0,
-      averageCrystals: 0
+      collectionName
     }));
 
     const selectableTreasureCollectionNames = _.keys(dataJson.selectableTreasures);
     $scope.selectableTreasureTables = _.map(selectableTreasureCollectionNames, (collectionName) => ({
-      collectionName,
-      totalCrystals: 0,
-      averageCrystals: 0
+      collectionName
     }));
-
-    $scope.chestTableTotalCrystals = 0;
-    $scope.chestTableAverageCrystals = 0;
   }
 
 }
