@@ -2,14 +2,14 @@ import _ from 'lodash';
 
 export default class UpgradeRecommendationService {
 
-  constructor($rootScope, dataJson, GetTreasuresPossessedAsArrayService) {
+  constructor($rootScope, dataJson, GetTreasuresPossessedAsArrayHelper) {
     this.dataJson = dataJson;
-    this.GetTreasuresPossessedAsArrayService = GetTreasuresPossessedAsArrayService;
+    this.GetTreasuresPossessedAsArrayHelper = GetTreasuresPossessedAsArrayHelper;
     this.treasureDataMemo = {};
   }
 
   getRecommendationList(data) {
-    const treasuresArray = this.GetTreasuresPossessedAsArrayService.getTreasuresPossessedAsArray(data);
+    const treasuresArray = this.GetTreasuresPossessedAsArrayHelper.getTreasuresPossessedAsArray(data);
     this._addProfitDataToTreasuresArray(treasuresArray);
     const filteredTreasures = this._filterMaxLevelTreasures(treasuresArray);
     const sortedTreasuresArray = this._getSortedTreasuresArray(filteredTreasures);

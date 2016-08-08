@@ -4,8 +4,8 @@ const app = angular.module('crystalCalculatorApp');
 
 class ResultBoxController {
 
-  constructor($rootScope, GetTreasuresPossessedAsArrayService, dataJson) {
-    this.GetTreasuresPossessedAsArrayService = GetTreasuresPossessedAsArrayService;
+  constructor($rootScope, GetTreasuresPossessedAsArrayHelper, dataJson) {
+    this.GetTreasuresPossessedAsArrayHelper = GetTreasuresPossessedAsArrayHelper;
     this.dataJson = dataJson;
     this.treasureDataMemo = {};
     this.result = {
@@ -16,7 +16,7 @@ class ResultBoxController {
   }
 
   updateResult(newData) {
-    const treasuresArray = this.GetTreasuresPossessedAsArrayService.getTreasuresPossessedAsArray(newData);
+    const treasuresArray = this.GetTreasuresPossessedAsArrayHelper.getTreasuresPossessedAsArray(newData);
     this.result = this._getTotalAndAverageCrystals(treasuresArray);
   }
 
