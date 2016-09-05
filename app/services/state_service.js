@@ -36,4 +36,12 @@ export default class StateService {
     this.model = angular.fromJson(localStorage.treasures);
   }
 
+  clearState() {
+    this.model = {};
+    this.$rootScope.$emit('stateChanged', this.model);
+    // need to update all bindings somehow. for now we hack it by refreshing
+    this.saveState();
+    location.reload();
+  }
+
 }

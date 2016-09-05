@@ -1,10 +1,9 @@
+/* eslint-disable no-alert*/
 import _ from 'lodash';
 
 export class MainController {
 
-  constructor($scope, dataJson) {
-    $scope.runningFromGithub = window.location.host === 'pgrobban.github.io';
-
+  constructor($scope, dataJson, StateService) {
     // init main collections
     const treasureCollectionNames = _.keys(dataJson.uniqueTreasures);
     $scope.treasureTables = _.map(treasureCollectionNames, (collectionName) => ({
@@ -15,6 +14,13 @@ export class MainController {
     $scope.selectableTreasureTables = _.map(selectableTreasureCollectionNames, (collectionName) => ({
       collectionName
     }));
+
+    $scope.confirmAndClearData = () => {
+      if (!confirm('Really clear all data? This action cannot be undone.')) {
+        return;
+      }
+      StateService.clearState();
+    };
   }
 
 }

@@ -13,7 +13,7 @@ app.factory('TreasureFactory', () => new factories.TreasureFactory(dataJson));
 app.factory('StateService', ($rootScope) => new services.StateService($rootScope));
 app.factory('GetTreasuresPossessedAsArrayHelper', (dataJson) => new helpers.GetTreasuresPossessedAsArray(dataJson));
 
-app.controller('MainController', ($scope, dataJson, $timeout) => new MainController($scope, dataJson, $timeout));
+app.controller('MainController', ($scope, dataJson, StateService) => new MainController($scope, dataJson, StateService));
 
 app.filter('round', () => (val) => round(val, 2));
 

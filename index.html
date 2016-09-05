@@ -18,7 +18,7 @@
     <script src="compiled-js/app.js"></script>
 </head>
 
-<body  ng-controller="MainController">
+<body ng-controller="MainController">
 
     <div class="container main-container">
 
@@ -32,19 +32,19 @@
                     to be her friend, she will calculate how strong your Crystal Engine is for you.</p>
 
                 <p>All you have to do is go through each of the tables below and tell her which treasures you have, and what
-                    level they are. Any changes will automatically trigger a recalculation, and you can see the result at the bottom
-                    of the screen. If you scroll down to the bottom, you will also see the top five recommended treasures
-                    for you to upgrade. Neat, huh? :)</p>
-                
+                    level they are. Any changes will automatically trigger a recalculation, and you can see the result at
+                    the bottom of the screen. If you scroll down to the bottom, you will also see the top five recommended
+                    treasures for you to upgrade. Neat, huh? :)</p>
+
                 <p ng-if="typeof(Storage) === 'undefined'"><strong>Note: Your browser has no support for web storage.</strong> This means your data will not be saved
-                when you close your browser or this tab.</p>
+                    when you close your browser or this tab.</p>
 
             </div>
             <div class="col-sm-offset-8 info-box">
                 <p>v. 2.0 beta<br/>
                     <i>Last updated</i>: August 5, 2016</p>
                 <p>Code by pgrobban<br/> All images and data from<br/>
-                <a href="http://cookierun.wikia.com/">Cookie Run Wiki</a></p>
+                    <a href="http://cookierun.wikia.com/">Cookie Run Wiki</a></p>
             </div>
         </div>
 
@@ -58,6 +58,13 @@
         </chest-treasure-table>
 
         <recommendation-box></recommendation-box>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="singlebutton"></label>
+            <div class="col-md-4 center-block">
+                <button class="btn btn-danger clear-all-data" ng-click="confirmAndClearData()">Clear all data</button>
+            </div>
+        </div>
     </div>
 
     <footer>

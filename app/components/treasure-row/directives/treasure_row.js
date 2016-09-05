@@ -48,7 +48,6 @@ class TreasureRowController {
 
     // the treasure model is the static data that holds for all treasures of one kind.
     this.treasureModel = TreasureFactory.$get(this.treasure.name);
-    console.log(this.treasureModel)
     this.treasure.iconUrl = this.treasureModel.iconUrl;
     // treasure instance holds values specific to an instance of a treasure, such as level.
     this.treasure.treasureInstance = new TreasureInstance(this.treasureModel, this.treasure.level);
