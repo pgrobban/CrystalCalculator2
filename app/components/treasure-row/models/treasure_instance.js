@@ -2,8 +2,8 @@
 export default class TreasureInstance {
 
   constructor(treasureModel, level) {
-    this.probabilityPercents = treasureModel.getCrystalProbabilityPercents();
-    this.crystalsIfPossessed = treasureModel.getCrystals();
+    this.probabilityPercents = treasureModel.probabilityPercents;
+    this.crystalsIfPossessed = treasureModel.crystals;
 
     if (!level || level === -1) {
       this.level = -1;

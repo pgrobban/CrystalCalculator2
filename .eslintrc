@@ -5,6 +5,7 @@
        "no-underscore-dangle": ["error", { "allowAfterThis": true }],
        "no-param-reassign": ["error", { "props": false }],
        "max-len": ["error", {"code": 160}],
-       "no-else-return": 0
+       "no-else-return": 0,
+       "no-labels": ["error", { "allowLoop": true }]
    }
 }

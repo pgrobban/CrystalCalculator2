@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+
 import _ from 'lodash';
 
 export default class UpgradeRecommendationService {
