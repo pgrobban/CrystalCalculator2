@@ -1,12 +1,19 @@
 <div class="container main-container">
-  <table class="table table-responsive">
-    <tr>
-      <td>Expected average <img src="img/crystal.png" />/day:</td>
-      <td class="text-right result" ng-bind="vm.result.averageCrystalsSum | round"></td>
-    </tr>
-    <tr>
-      <td>Maximum <img src="img/crystal.png" />/day:</td>
-      <td class="text-right result" ng-bind="vm.result.totalCrystals"></td>
-    </tr>
-  </table>
+  <div class="col-xs-12 col-md-6">
+    <table class="table table-responsive">
+      <tr>
+        <td>Expected average <img src="img/crystal.png" />/day:</td>
+        <td class="text-right result" ng-bind="vm.result.averageCrystalsSum | round"></td>
+      </tr>
+      <tr>
+        <td>Maximum <img src="img/crystal.png" />/day:</td>
+        <td class="text-right result" ng-bind="vm.result.totalCrystals"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="col-hidden-xs col-md-6">
+    <p>Recommended treasures to upgrade</p>
+    <recommendation-box></recommendation-box>
+  </div>
 </div>

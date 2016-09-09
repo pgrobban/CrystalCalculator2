@@ -4,11 +4,11 @@ const app = angular.module('crystalCalculatorApp');
 
 class RecommendationBoxController {
 
-  constructor($rootScope, dataJson, GetTreasuresPossessedAsArrayHelper) {
+  constructor($rootScope, dataJson, GetTreasuresPossessedAsArrayHelper, TreasureFactory) {
     this.result = [];
-    const recommendationService = new UpgradeRecommendationService($rootScope, dataJson, GetTreasuresPossessedAsArrayHelper);
+    const recommendationService = new UpgradeRecommendationService($rootScope, dataJson, GetTreasuresPossessedAsArrayHelper, TreasureFactory);
     $rootScope.$on('stateChanged', (evt, data) => {
-      this.result = recommendationService.getRecommendationList(data);
+      this.recommendations = recommendationService.getRecommendationList(data);
     });
   }
 

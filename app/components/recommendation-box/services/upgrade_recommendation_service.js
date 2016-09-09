@@ -4,17 +4,18 @@ import _ from 'lodash';
 
 export default class UpgradeRecommendationService {
 
-  constructor($rootScope, dataJson, GetTreasuresPossessedAsArrayHelper) {
+  constructor($rootScope, dataJson, GetTreasuresPossessedAsArrayHelper, TreasureFactory) {
     this.dataJson = dataJson;
     this.GetTreasuresPossessedAsArrayHelper = GetTreasuresPossessedAsArrayHelper;
-    this.treasureDataMemo = {};
+    this.TreasureFactory = TreasureFactory;
   }
 
   getRecommendationList(data) {
     const treasuresArray = this.GetTreasuresPossessedAsArrayHelper.getTreasuresPossessedAsArray(data);
-    this._addProfitDataToTreasuresArray(treasuresArray);
+    this._addProfitData(treasuresArray);
     const filteredTreasures = this._filterMaxLevelTreasures(treasuresArray);
     const sortedTreasuresArray = this._getSortedTreasuresArray(filteredTreasures);
+    console.log(sortedTreasuresArray)
     return sortedTreasuresArray;
   }
 
@@ -23,54 +24,15 @@ export default class UpgradeRecommendationService {
     return _.filter(treasuresArray, (treasure) => treasure.level !== MAX_LEVEL);
   }
 
-  _addProfitDataToTreasuresArray(treasuresArray) {
+  _addProfitData(treasuresArray) {
     _.forEach(treasuresArray, (treasure) => {
-      if (!this.treasureDataMemo[treasure.name]) {
-        this._addTreasureToMemo(treasure.name);
-      }
-      treasure.iconUrl = this.treasureDataMemo[treasure.name].icon;
+      treasure.iconUrl = this.TreasureFactory.treasureDataMemo[treasure.name].icon;
       treasure.profitData = {
-        currentProfit: this.treasureDataMemo[treasure.name].averageProfitPerDay[treasure.level],
-        profitWhenUpgraded: this.treasureDataMemo[treasure.name].averageProfitPerDay[treasure.level + 1]
+        averageProfitPerDay: _.map(this.TreasureFactory.treasureDataMemo[treasure.name].probabilityPercents, (per) => per * treasure.crystals)
       };
+      treasure.profitData.currentProfit = treasure.profitData.averageProfitPerDay[treasure.level];
+      treasure.profitWhenUpgraded = treasure.profitData.averageProfitPerDay[treasure.level + 1];
     });
-  }
-
-  _addTreasureToMemo(name) {
-    const jsonData = this._findTreasureDataInJson(name);
-    this.treasureDataMemo[name] = {
-      icon: this.getIconUrl(jsonData.icon),
-      crystals: jsonData.crystals,
-      probabilityPercents: jsonData.probabilityPercents,
-      averageProfitPerDay: _.map(jsonData.probabilityPercents, (percent) => jsonData.crystals * (percent / 100))
-    };
-  }
-
-  getIconUrl(iconFile) {
-    const iconBasePath = 'img/';
-    return `${iconBasePath}${iconFile}`;
-  }
-
-  _findTreasureDataInJson(name) {
-    if (!name) {
-      throw new Error('_findTreasureDataInJson called without name');
-    }
-
-    let data = null;
-    _.forEach(this.dataJson, (superCollection) => {
-      _.forEach(superCollection, (subCollection) => {
-        _.forEach(subCollection.treasures, (treasure, treasureName) => {
-          if (name === treasureName) {
-            data = treasure;
-            return false;
-          }
-        });
-      });
-    });
-    if (!data) {
-      throw new Error(`Treasure with name ${name} not in json`);
-    }
-    return data;
   }
 
   _getSortedTreasuresArray(treasuresArray) {
