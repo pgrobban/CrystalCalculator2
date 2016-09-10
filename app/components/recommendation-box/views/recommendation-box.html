@@ -1,11 +1,13 @@
 <div class="recommendation-box">
   <div ng-repeat="treasure in vm.recommendations" class="col-xs-4">
-    <div class="row">
-      <div class="col-xs-6 recommendation-img">
+    <div class="row row-no-padding">
+      <div class="col-xs-5">
         <img class="tiny-img" src="{{ treasure.iconUrl }}"/>
       </div>
-      <div class="col-xs-6">
-        Lv. {{ treasure.level }} &rarr; {{ treasure.level + 1 }}
+      <div class="col-xs-7">
+        Lv. {{ treasure.level }} &rarr; {{ treasure.level + 1 }}<br/>
+        <img src="img/crystal.png" />/day:<br/>
+         {{ treasure.profitData.currentProfit }} &rarr; <span class="large">{{ treasure.profitData.profitWhenUpgraded }}</span>
       </div>
     </div>
   </div>
