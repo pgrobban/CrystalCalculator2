@@ -1,3 +1,12 @@
-<div>
-  hi
+<div class="recommendation-box">
+  <div ng-repeat="treasure in vm.recommendations" class="col-xs-4">
+    <div class="row">
+      <div class="col-xs-6 recommendation-img">
+        <img class="tiny-img" src="{{ treasure.iconUrl }}"/>
+      </div>
+      <div class="col-xs-6">
+        Lv. {{ treasure.level }} &rarr; {{ treasure.level + 1 }}
+      </div>
+    </div>
+  </div>
 </div>

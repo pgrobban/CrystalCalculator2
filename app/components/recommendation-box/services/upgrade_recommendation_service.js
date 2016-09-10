@@ -1,5 +1,4 @@
 /* eslint-disable consistent-return */
-
 import _ from 'lodash';
 
 export default class UpgradeRecommendationService {
@@ -15,7 +14,6 @@ export default class UpgradeRecommendationService {
     this._addProfitData(treasuresArray);
     const filteredTreasures = this._filterMaxLevelTreasures(treasuresArray);
     const sortedTreasuresArray = this._getSortedTreasuresArray(filteredTreasures);
-    console.log(sortedTreasuresArray)
     return sortedTreasuresArray;
   }
 
@@ -26,12 +24,13 @@ export default class UpgradeRecommendationService {
 
   _addProfitData(treasuresArray) {
     _.forEach(treasuresArray, (treasure) => {
-      treasure.iconUrl = this.TreasureFactory.treasureDataMemo[treasure.name].icon;
+      const crystals = this.TreasureFactory.treasureDataMemo[treasure.name].crystals;
       treasure.profitData = {
-        averageProfitPerDay: _.map(this.TreasureFactory.treasureDataMemo[treasure.name].probabilityPercents, (per) => per * treasure.crystals)
+        averageProfitPerDay: _.map(this.TreasureFactory.treasureDataMemo[treasure.name].probabilityPercents, (per) => (per * crystals) / 100)
       };
       treasure.profitData.currentProfit = treasure.profitData.averageProfitPerDay[treasure.level];
-      treasure.profitWhenUpgraded = treasure.profitData.averageProfitPerDay[treasure.level + 1];
+      treasure.profitData.profitWhenUpgraded = treasure.profitData.averageProfitPerDay[treasure.level + 1];
+      treasure.iconUrl = this.TreasureFactory.treasureDataMemo[treasure.name].iconUrl;
     });
   }
 
