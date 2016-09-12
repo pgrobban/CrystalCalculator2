@@ -5,8 +5,9 @@ var babelify = require("babelify");
 var source = require('vinyl-source-stream');
 var gutil = require('gulp-util');
 var sass = require('gulp-sass');
-var minify = require('gulp-minify');
+var ngAnnotate = require('gulp-ng-annotate');
 var cleanCSS = require('gulp-clean-css');
+var minify = require('gulp-minify');
 
 // Lets bring es6 to es5 with this.
 // Babel - converts ES6 code to ES5 - however it doesn't handle imports.
@@ -29,12 +30,12 @@ gulp.task('es6', function () {
     .pipe(gulp.dest('./'));
 });
 
-// next we compress (minify) it
-gulp.task('compress', function() {
-  gulp.src('dist/app.js')
-    .pipe(minify({
-    }))
-    .pipe(gulp.dest('./dist'))
+// annotate and minify it
+gulp.task('compress', function () {
+  return gulp.src('dist/app.js')
+    .pipe(ngAnnotate())
+    .pipe(minify({}))
+    .pipe(gulp.dest('./dist'));
 });
 
 // next, take SASS and transform it to CSS
@@ -45,9 +46,9 @@ gulp.task('sass', function () {
 });
 
 // next minify the css
-gulp.task('minify-css', function() {
+gulp.task('minify-css', function () {
   return gulp.src('css/*.css')
-    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(cleanCSS({ compatibility: 'ie8' }))
     .pipe(gulp.dest('./dist'));
 });
 
@@ -56,4 +57,4 @@ gulp.task('watch', function () {
   gulp.watch(['./sass/**/*.scss'], ['sass', 'minify-css']);
 });
 
-gulp.task('default', ['sass', 'es6', 'watch', 'compress', 'minify-css']);
+gulp.task('default', ['sass', 'es6', 'compress', 'minify-css', 'watch']);
