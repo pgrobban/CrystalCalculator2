@@ -24,9 +24,9 @@ export default class UpgradeRecommendationService {
 
   _addProfitData(treasuresArray) {
     _.forEach(treasuresArray, (treasure) => {
-      const crystals = this.TreasureFactory.treasureDataMemo[treasure.name].crystals;
+      const crystals = this.TreasureFactory.$get(treasure.name).crystals;
       treasure.profitData = {
-        averageProfitPerDay: _.map(this.TreasureFactory.treasureDataMemo[treasure.name].probabilityPercents, (per) => (per * crystals) / 100)
+        averageProfitPerDay: _.map(this.TreasureFactory.$get(treasure.name).probabilityPercents, (per) => (per * crystals) / 100)
       };
       treasure.profitData.currentProfit = treasure.profitData.averageProfitPerDay[treasure.level];
       treasure.profitData.profitWhenUpgraded = treasure.profitData.averageProfitPerDay[treasure.level + 1];

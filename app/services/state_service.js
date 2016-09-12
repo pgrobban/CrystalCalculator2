@@ -3,8 +3,10 @@ import angular from 'angular';
 
 export default class StateService {
 
-  constructor($rootScope) {
+  constructor($rootScope, $anchorScroll) {
     this.$rootScope = $rootScope;
+    this.$anchorScroll = $anchorScroll;
+
     if (Storage) {
       if (!localStorage.treasures) {
         this.model = {};
@@ -41,6 +43,7 @@ export default class StateService {
     this.$rootScope.$emit('stateChanged', this.model);
     // need to update all bindings somehow. for now we hack it by refreshing
     this.saveState();
+    this.$anchorScroll();
     location.reload();
   }
 
