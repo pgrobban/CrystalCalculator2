@@ -63,10 +63,23 @@
                 <button class="btn btn-danger clear-all-data" ng-click="confirmAndClearData()">Clear all data</button>
             </div>
         </div>
+
+        <div class="visible-xs">
+            <recommendation-box></recommendation-box>
+        </div>
     </div>
 
     <footer>
-        <result-box result="result"></result-box>
+        <div class="container main-container">
+            <div class="col-xs-12 col-md-5">
+                <result-box result="vm.result"></result-box>
+            </div>
+
+            <div class="col-hidden-xs col-md-7">
+                Recommended treasures to upgrade:
+                <recommendation-box></recommendation-box>
+            </div>
+        </div>
     </footer>
 </body>
 

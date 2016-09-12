@@ -21,6 +21,8 @@ export class MainController {
       }
       StateService.clearState();
     };
+
+    const result = {}; // for result-box
   }
 
 }

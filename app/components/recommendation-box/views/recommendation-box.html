@@ -7,7 +7,7 @@
       <div class="col-xs-7">
         Lv. {{ treasure.level }} &rarr; {{ treasure.level + 1 }}<br/>
         <img src="img/crystal.png" />/day:<br/>
-         {{ treasure.profitData.currentProfit }} &rarr; <span class="large">{{ treasure.profitData.profitWhenUpgraded }}</span>
+         {{ treasure.profitData.currentProfit | round }} &rarr; <span class="large">{{ treasure.profitData.profitWhenUpgraded | round }}</span>
       </div>
     </div>
   </div>
