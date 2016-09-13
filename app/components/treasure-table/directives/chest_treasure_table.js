@@ -32,6 +32,8 @@ class ChestTreasureTableController {
       name: treasure.name,
       level: treasure.treasureInstance ? treasure.treasureInstance.level : -1
     })));
+    
+    console.log("*****", this.treasures, this.StateService.model);
   }
 
   chestTreasureSelectChanged() {
