@@ -28,7 +28,6 @@ class ChestTreasureTableController {
   }
 
   updateSaveState() {
-    console.log(this.treasures);
     this.StateService.setModel(this.collectionName, map(this.treasures, (treasure) => ({
       name: treasure.name,
       level: treasure.treasureInstance ? treasure.treasureInstance.level : -1
