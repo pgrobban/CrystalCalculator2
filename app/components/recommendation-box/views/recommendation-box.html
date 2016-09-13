@@ -3,7 +3,7 @@
   <div ng-repeat="treasure in vm.recommendations | limitTo: 3" class="col-xs-4">
     <div class="row row-no-padding">
       <div class="col-xs-5">
-        <img class="tiny-img" src="{{ treasure.iconUrl }}"/>
+        <img class="tiny-img" ng-src="{{ treasure.iconUrl }}"/>
       </div>
       <div class="col-xs-7">
         Lv. {{ treasure.level }} &rarr; {{ treasure.level + 1 }}<br/>
