@@ -5,6 +5,7 @@ const app = angular.module('crystalCalculatorApp');
 class ChestTreasureTableController {
 
   constructor(dataJson, $timeout, StateService) {
+    this.$timeout = $timeout;
     // this == $scope.vm
     this.StateService = StateService;
     this.description = dataJson.chestTreasures.chestTreasures.description;
@@ -43,6 +44,7 @@ class ChestTreasureTableController {
       });
       this.selectedTreasure = 'none';
     }
+    this.$timeout(this.updateSaveState.bind(this), 0);
   }
 
   treasureDeleted(index) {
