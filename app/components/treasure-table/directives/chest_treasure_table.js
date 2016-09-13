@@ -5,7 +5,6 @@ const app = angular.module('crystalCalculatorApp');
 class ChestTreasureTableController {
 
   constructor(dataJson, $timeout, StateService) {
-    this.$timeout = $timeout;
     // this == $scope.vm
     this.StateService = StateService;
     this.description = dataJson.chestTreasures.chestTreasures.description;
@@ -25,10 +24,11 @@ class ChestTreasureTableController {
         }
       });
     }
-    // $timeout(this.updateSaveState.bind(this), 0);
+    $timeout(this.updateSaveState.bind(this), 0);
   }
 
   updateSaveState() {
+    console.log(this.treasures);
     this.StateService.setModel(this.collectionName, map(this.treasures, (treasure) => ({
       name: treasure.name,
       level: treasure.treasureInstance ? treasure.treasureInstance.level : -1
@@ -44,7 +44,6 @@ class ChestTreasureTableController {
       });
       this.selectedTreasure = 'none';
     }
-    this.$timeout(this.updateSaveState.bind(this), 0);
   }
 
   treasureDeleted(index) {
