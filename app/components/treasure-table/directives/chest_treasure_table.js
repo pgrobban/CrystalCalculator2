@@ -43,6 +43,7 @@ class ChestTreasureTableController {
         name: this.selectedTreasure
       });
       this.selectedTreasure = 'none';
+      this.updateSaveState();
     }
   }
 
