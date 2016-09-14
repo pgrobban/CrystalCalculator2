@@ -21,6 +21,7 @@ export default class TreasureInstance {
 
   updateProfitData() {
     this.profitData.averageProfitPerDay = map(this.treasureModel.probabilityPercents, (per) => (per * this.profitData.crystals) / 100);
+    this.profitData.probabilityPercent = this.treasureModel.probabilityPercents[this.level];
     this.profitData.currentProfit = this.profitData.averageProfitPerDay[this.level];
     this.profitData.profitWhenUpgraded = this.profitData.averageProfitPerDay[this.level + 1];
   }

@@ -5,17 +5,17 @@
       <tr>
         <td></td>
         <td><strong>Crystals/earning:</strong></td>
-        <td>{{ vm.treasure.treasureInstance.crystals }} </td>
+        <td>{{ vm.treasure.treasureInstance.profitData.crystals }} </td>
       </tr>
       <tr>
         <td>x</td>
         <td><strong>Probability:</strong></td>
-        <td>{{ vm.treasure.treasureInstance.probabilityPercent }}%</td>
+        <td>{{ vm.treasure.treasureInstance.profitData.probabilityPercent }}%</td>
       </tr>
       <tr>
         <td>=</td>
         <td><strong>Average earnings/day:</strong></td>
-        <td>{{ vm.treasure.treasureInstance.average | round }} </td>
+        <td>{{ vm.treasure.treasureInstance.profitData.currentProfit | round }} </td>
       </tr>
     </table>
   </div>
