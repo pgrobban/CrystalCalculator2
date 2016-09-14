@@ -24,6 +24,7 @@ class ChestTreasureTableController {
         }
       });
     }
+    $timeout(this.updateSaveState.bind(this), 50);
   }
 
   updateSaveState() {
