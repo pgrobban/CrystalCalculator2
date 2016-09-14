@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 export class MainController {
 
-  constructor($scope, dataJson, StateService) {
+  constructor($scope, dataJson, StateService, $timeout, $rootScope) {
     // init main collections
     const treasureCollectionNames = _.keys(dataJson.uniqueTreasures);
     $scope.treasureTables = _.map(treasureCollectionNames, (collectionName) => ({
@@ -21,6 +21,10 @@ export class MainController {
       }
       StateService.clearState();
     };
+
+    $timeout(() => {
+      $rootScope.$emit('stateChanged', StateService.model); // hack
+    });
 
     const result = {}; // for result-box
   }
