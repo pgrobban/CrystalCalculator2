@@ -43,16 +43,5 @@ export class TreasureFactory {
   _getIconUrl(fileName) {
     const iconBasePath = 'img/';
     return `${iconBasePath}${fileName}`;
-  } /*
-
-  getCrystals() {
-    return this.treasureData.crystals;
   }
-
-  getCrystalProbabilityPercents() {
-    if (!this.treasureData) {
-      throw new Error('getCrystalProbabilityPercents called without data');
-    }
-    return this.treasureData.probabilityPercents;
-  } */
 }

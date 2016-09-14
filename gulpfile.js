@@ -11,7 +11,7 @@ var uglify = require('gulp-uglify');
 var ngAnnotate = require('browserify-ngannotate');
 var buffer = require('vinyl-buffer')
 
-gulp.task('build-js', ['clean'], function () {
+gulp.task('build-js', function () {
   var b = browserify({
     entries: './app/app.js',
     debug: true,
@@ -29,7 +29,7 @@ gulp.task('build-js', ['clean'], function () {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('build-css', ['clean'], function () {
+gulp.task('build-css', function () {
   return gulp.src('./sass/*')
     .pipe(sourcemaps.init())
     .pipe(sass())
@@ -50,4 +50,4 @@ gulp.task('watch', function () {
   gulp.watch(['./sass/**/*.scss'], ['build-css']);
 });
 
-gulp.task('default', ['build', 'watch']);
+gulp.task('default', ['clean', 'build', 'watch']);
