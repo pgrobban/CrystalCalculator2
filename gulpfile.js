@@ -1,18 +1,17 @@
-/* eslint-disable */
-var gulp = require('gulp');
-var del = require('del');
-var browserify = require("browserify");
-var babelify = require("babelify");
-var source = require('vinyl-source-stream');
-var sourcemaps = require('gulp-sourcemaps');
-var gutil = require('gulp-util');
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
-var ngAnnotate = require('browserify-ngannotate');
-var buffer = require('vinyl-buffer')
+const gulp = require('gulp');
+const del = require('del');
+const browserify = require('browserify');
+const babelify = require('babelify');
+const source = require('vinyl-source-stream');
+const sourcemaps = require('gulp-sourcemaps');
+const gutil = require('gulp-util');
+const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
+const ngAnnotate = require('browserify-ngannotate');
+const buffer = require('vinyl-buffer');
 
-gulp.task('build-js', function () {
-  var b = browserify({
+gulp.task('build-js', () => {
+  const b = browserify({
     entries: './app/app.js',
     debug: true,
     paths: [],
@@ -29,23 +28,19 @@ gulp.task('build-js', function () {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('build-css', function () {
-  return gulp.src('./sass/*')
+gulp.task('build-css', () =>
+  gulp.src('./sass/*')
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./dist'));
-});
+    .pipe(gulp.dest('./dist'))
+);
 
-gulp.task('clean', function () {
-  return del(['./dist']);
-});
+gulp.task('clean', () => del(['./dist']));
 
-gulp.task('build', [ 'clean', 'build-css', 'build-js'], function() {  
-  return;
-});
+gulp.task('build', ['clean', 'build-css', 'build-js'], () => { });
 
-gulp.task('watch', function () {
+gulp.task('watch', () => {
   gulp.watch(['./app/**/*.js', './data/**/*.json'], ['build-js']);
   gulp.watch(['./sass/**/*.scss'], ['build-css']);
 });
