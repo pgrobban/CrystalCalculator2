@@ -9,6 +9,8 @@ class ChestTreasureTableController {
     // this == $scope.vm
     this.StateService = StateService;
     this.TreasureFactory = TreasureFactory;
+    this.$timeout = $timeout;
+
     this.description = dataJson.chestTreasures.chestTreasures.description;
     this.selectableTreasureNames = Object.keys(dataJson.chestTreasures.chestTreasures.treasures);
     this.selectedTreasure = 'none';
@@ -30,10 +32,12 @@ class ChestTreasureTableController {
   }
 
   updateSaveState() {
-    this.StateService.setModel(this.collectionName, map(this.treasures, (treasure) => ({
-      name: treasure.name,
-      level: treasure.treasureInstance ? treasure.treasureInstance.level : -1
-    })));
+    this.$timeout(() => {
+      this.StateService.setModel(this.collectionName, map(this.treasures, (treasure) => ({
+        name: treasure.name,
+        level: treasure.treasureInstance ? treasure.treasureInstance.level : -1
+      })));
+    });
   }
 
   chestTreasureSelectChanged() {
