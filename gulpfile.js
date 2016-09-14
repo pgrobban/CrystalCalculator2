@@ -3,6 +3,7 @@ var gulp = require('gulp');
 var browserify = require("browserify");
 var babelify = require("babelify");
 var source = require('vinyl-source-stream');
+var sourcemaps = require('gulp-sourcemaps');
 var gutil = require('gulp-util');
 var sass = require('gulp-sass');
 var ngAnnotate = require('gulp-ng-annotate');
@@ -33,8 +34,10 @@ gulp.task('es6', function () {
 // annotate and minify it
 gulp.task('compress', function () {
   return gulp.src('dist/app.js')
+    .pipe(sourcemaps.init())
     .pipe(ngAnnotate())
     .pipe(minify({}))
+    .pipe(sourcemaps.write('./dist'))
     .pipe(gulp.dest('./dist'));
 });
 

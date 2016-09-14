@@ -55,7 +55,7 @@ class TreasureRowController {
   }
 
   levelChanged() {
-    this.treasure.treasureInstance.updateCrystalProbability();
+    this.treasure.treasureInstance.updateProfitData();
     this.onChange();
   }
 
