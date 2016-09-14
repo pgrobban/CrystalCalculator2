@@ -24,7 +24,7 @@ export class MainController {
 
     $timeout(() => {
       $rootScope.$emit('stateChanged', StateService.model); // hack
-    });
+    }, 100);
 
     const result = {}; // for result-box
   }
