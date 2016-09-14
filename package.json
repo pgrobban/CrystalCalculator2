@@ -15,19 +15,22 @@
     "babelify": "^7.3.0",
     "bootstrap-sass": "^3.3.7",
     "browserify": "^13.0.1",
+    "browserify-ngannotate": "^2.0.0",
     "eslint": "^3.0.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.10.2",
     "eslint-plugin-jsx-a11y": "^2.0.0",
     "eslint-plugin-react": "^5.2.2",
     "gulp": "^3.9.1",
-    "gulp-clean-css": "^2.0.12",
-    "gulp-minify": "0.0.14",
-    "gulp-ng-annotate": "^2.0.0",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
     "lodash": "^4.13.1",
+    "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "del": "^2.2.2"
   }
 }

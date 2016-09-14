@@ -1,63 +1,53 @@
 /* eslint-disable */
 var gulp = require('gulp');
+var del = require('del');
 var browserify = require("browserify");
 var babelify = require("babelify");
 var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var gutil = require('gulp-util');
 var sass = require('gulp-sass');
-var ngAnnotate = require('gulp-ng-annotate');
-var cleanCSS = require('gulp-clean-css');
-var minify = require('gulp-minify');
+var uglify = require('gulp-uglify');
+var ngAnnotate = require('browserify-ngannotate');
+var buffer = require('vinyl-buffer')
 
-// Lets bring es6 to es5 with this.
-// Babel - converts ES6 code to ES5 - however it doesn't handle imports.
-// Browserify - crawls your code for dependencies and packages them up 
-// into one file. can have plugins.
-// Babelify - a babel plugin for browserify, to make browserify 
-// handle es6 including imports.
-// first we transpitle the code to ES5 and get one output file.
-gulp.task('es6', function () {
-  browserify({
-    debug: true
-  })
-    .transform(babelify)
-    .require("./app/app.js", {
-      entry: true
-    })
-    .bundle()
+gulp.task('build-js', ['clean'], function () {
+  var b = browserify({
+    entries: './app/app.js',
+    debug: true,
+    paths: [],
+    transform: [babelify, ngAnnotate]
+  });
+
+  return b.bundle()
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(uglify())
     .on('error', gutil.log)
-    .pipe(source('dist/app.js'))
-    .pipe(gulp.dest('./'));
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./dist'));
 });
 
-// annotate and minify it
-gulp.task('compress', function () {
-  return gulp.src('dist/app.js')
+gulp.task('build-css', ['clean'], function () {
+  return gulp.src('./sass/*')
     .pipe(sourcemaps.init())
-    .pipe(ngAnnotate())
-    .pipe(minify({}))
-    .pipe(sourcemaps.write('./dist'))
+    .pipe(sass())
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist'));
 });
 
-// next, take SASS and transform it to CSS
-gulp.task('sass', function () {
-  return gulp.src('./sass/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./dist'));
+gulp.task('clean', function () {
+  return del(['./dist']);
 });
 
-// next minify the css
-gulp.task('minify-css', function () {
-  return gulp.src('css/*.css')
-    .pipe(cleanCSS({ compatibility: 'ie8' }))
-    .pipe(gulp.dest('./dist'));
+gulp.task('build', [ 'clean', 'build-css', 'build-js'], function() {  
+  return;
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['./app/**/*.js', './data/**/*.json'], ['es6', 'compress']);
-  gulp.watch(['./sass/**/*.scss'], ['sass', 'minify-css']);
+  gulp.watch(['./app/**/*.js', './data/**/*.json'], ['build-js']);
+  gulp.watch(['./sass/**/*.scss'], ['build-css']);
 });
 
-gulp.task('default', ['sass', 'es6', 'compress', 'minify-css', 'watch']);
+gulp.task('default', ['build', 'watch']);
