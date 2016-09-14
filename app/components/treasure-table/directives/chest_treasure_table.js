@@ -24,13 +24,12 @@ class ChestTreasureTableController {
         }
       });
     }
-    $timeout(this.updateSaveState.bind(this), 50);
   }
 
   updateSaveState() {
     this.StateService.setModel(this.collectionName, map(this.treasures, (treasure) => ({
       name: treasure.name,
-      level: treasure.level > -1 ? treasure.level : (treasure.treasureInstance ? treasure.treasureInstance.level : -1)
+      level: treasure.treasureInstance ? treasure.treasureInstance.level : -1
     })));
   }
 
