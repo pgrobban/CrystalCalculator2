@@ -312,6 +312,166 @@
                         58,
                         60
                     ]
+                },
+                "Cookie Run: 9M Points Certificate": {
+                    "icon": "Cookie Run- 9M Points Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        49,
+                        50,
+                        51,
+                        52,
+                        53,
+                        54,
+                        55,
+                        56,
+                        57,
+                        59
+                    ]
+                },
+                "Cookie Run: 8M Points Certificate": {
+                    "icon": "Cookie Run- 8M Points Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        48,
+                        49,
+                        50,
+                        51,
+                        52,
+                        53,
+                        54,
+                        55,
+                        56,
+                        58
+                    ]
+                },
+                "Cookie Run: 7M Points Certificate": {
+                    "icon": "Cookie Run- 7M Points Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        47,
+                        48,
+                        49,
+                        50,
+                        51,
+                        52,
+                        53,
+                        54,
+                        55,
+                        57
+                    ]
+                },
+                "Cookie Run: 6M Points Certificate": {
+                    "icon": "Cookie Run- 6M Points Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51,
+                        52,
+                        53,
+                        54,
+                        56
+                    ]
+                },
+                "Cookie Run: 5M Points Certificate": {
+                    "icon": "Cookie Run- 5M Points Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51,
+                        52,
+                        53,
+                        55
+                    ]
+                },
+                "Cookie Run: 4M Points Certificate": {
+                    "icon": "Cookie Run- 4M Points Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51,
+                        52,
+                        54
+                    ]
+                },
+                "Cookie Run: 3M Points Certificate": {
+                    "icon": "Cookie Run- 3M Points Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51,
+                        53
+                    ]
+                },
+                "Cookie Run: 2M Points Certificate": {
+                    "icon": "Cookie Run- 2M Points Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        52
+                    ]
+                },
+                "Cookie Run: 1M Points Certificate": {
+                    "icon": "Cookie Run- 1M Points Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        51
+                    ]
+                },
+                "Certificate of Playing the New World": {
+                    "icon": "0M_Certificate.png",
+                    "crystals": 1,
+                    "probabilityPercents": [
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        50
+                    ]
                 }
             }
         },
