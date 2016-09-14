@@ -32,7 +32,7 @@ class ChestTreasureTableController {
   updateSaveState() {
     this.StateService.setModel(this.collectionName, map(this.treasures, (treasure) => ({
       name: treasure.name,
-      level: treasure.treasureInstance.level || -1
+      level: treasure.treasureInstance ? treasure.treasureInstance.level : -1
     })));
   }
 
