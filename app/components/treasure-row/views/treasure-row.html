@@ -1,5 +1,5 @@
 <td><img ng-src="{{ vm.treasure.iconUrl }}" alt=""></td>
-<td>{{ vm.treasure.name }}
+<td><span ng-bind="vm.treasure.name"></span>
   <div ng-if="vm.treasure.treasureInstance.level > -1" class="hidden-xs small">
     <table class="small">
       <tr>
