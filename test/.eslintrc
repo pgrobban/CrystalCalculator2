@@ -6,6 +6,7 @@
   "globals": {
     "browser": true,
     "element": true,
-    "by": true
+    "by": true,
+    "expect": true
   }
 }

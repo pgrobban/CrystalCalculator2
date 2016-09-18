@@ -13,7 +13,7 @@ class SelectWrapper {
   }
 
   selectByValue(value) {
-    return this.webElement.all(by.css('option[value="' + value + '"]')).click();
+    return this.webElement.all(by.css(`option[value="${value}"]`)).click();
   }
 
   selectByPartialText(text) {
@@ -21,7 +21,7 @@ class SelectWrapper {
   }
 
   selectByText(text) {
-    return this.webElement.all(by.xpath('option[.="' + text + '"]')).click();
+    return this.webElement.all(by.xpath(`option[value="${text}"]`)).click();
   }
 
 }

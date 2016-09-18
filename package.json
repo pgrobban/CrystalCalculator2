@@ -4,6 +4,10 @@
   "description": "A tool for calculating daily earnings of crystals in the game LINE Cookie Run.",
   "license": "MIT",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pgrobban/CrystalCalculator2"
+  },
   "scripts": {
     "start": "npm run start-server & npm run gulp",
     "start-server": "python -m SimpleHTTPServer 3000",
@@ -31,7 +35,6 @@
     "gulp-util": "^3.0.7",
     "lodash": "^4.13.1",
     "protractor": "^4.0.8",
-    "should": "^11.1.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
